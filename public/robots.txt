@@ -2,8 +2,6 @@ User-agent: *
 Allow: /
 Allow: /website
 Allow: /mobileapp
-Allow: /eticaretpaketleri
-Allow: /eticaretkurulumpaketleri
 Allow: /360performance
 Allow: /socialmedia
 Allow: /googleads
