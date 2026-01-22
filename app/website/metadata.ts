@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Profesyonel Web Tasarım ve Geliştirme Hizmetleri | Miaso",
-  description: "Modern, responsive ve kullanıcı dostu web tasarım hizmetleri. SEO uyumlu, hızlı ve etkileyici web siteleri ile dijital varlığınızı güçlendirin.",
-  keywords: "web tasarım, web geliştirme, responsive tasarım, kurumsal web sitesi, e-ticaret sitesi tasarımı, özel web yazılım, SEO uyumlu tasarım, modern web sitesi",
+  title: "Web Development Services | Miaso - Custom Website Design",
+  description: "Stand out in the digital world with modern and impressive websites. Custom web design, responsive development, SEO-friendly coding and secure infrastructure.",
+  keywords: "web development, website design, custom web design, responsive design, SEO-friendly, secure website, web application, Next.js development",
   openGraph: {
-    title: "Profesyonel Web Tasarım ve Geliştirme Hizmetleri | Miaso",
-    description: "Modern ve kullanıcı dostu web tasarım çözümleri ile markanızı dijitalde öne çıkarın.",
+    title: "Web Development Services | Miaso",
+    description: "Stand out in the digital world with modern and impressive websites. Custom web design and development services.",
     url: "https://miaso.co/website",
     type: "website",
   },
-} 
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development Services | Miaso",
+    description: "Stand out in the digital world with modern and impressive websites.",
+  },
+  alternates: {
+    canonical: "https://miaso.co/website",
+  },
+}

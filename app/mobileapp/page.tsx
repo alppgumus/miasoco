@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { Red_Hat_Display } from "next/font/google";
-import ContactPopup from '../../components/ContactPopup';
+const CONTACT_EMAIL = 'info@miaso.co';
 import Link from 'next/link';
 
 const redHat = Red_Hat_Display({
@@ -14,13 +14,13 @@ const redHat = Red_Hat_Display({
 export default function MobileApp() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isMounted, setIsMounted] = useState(false)
-  const [isContactOpen, setIsContactOpen] = useState(false)
+  
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.75
     }
-    
+
     setIsMounted(true)
   }, [])
 
@@ -49,24 +49,24 @@ export default function MobileApp() {
         }}>
           <div className="container mx-auto px-4 pt-32 pb-20">
             <div className="flex flex-col items-center text-center max-w-[1200px] mx-auto">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className={`${redHat.className} text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-gray-900 max-w-3xl`}
               >
-                Mobil dünyada <br />
-                <span className="text-[#00c16a]">yerinizi alın</span>
+                Take your place in the <br />
+                <span className="text-[#00c16a]">mobile world</span>
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className={`${redHat.className} text-lg md:text-xl text-gray-600 mb-8 max-w-2xl font-light`}
               >
-                iOS ve Android için native mobil uygulamalar geliştiriyor, 
-                işletmenizi mobil dünyada öne çıkarıyoruz.
+                We develop native mobile applications for iOS and Android,
+                making your business stand out in the mobile world.
               </motion.p>
 
               <motion.div
@@ -75,16 +75,16 @@ export default function MobileApp() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex gap-4 mb-16"
               >
-                <button 
-                  onClick={() => setIsContactOpen(true)}
+                <button
+                  href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                   className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-8 py-4 rounded-lg font-medium transition-all"
                 >
-                  Bizimle İletişime Geç
+                  Get in Touch
                 </button>
               </motion.div>
 
               {/* Video */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7 }}
@@ -112,19 +112,19 @@ export default function MobileApp() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
                 <h2 className={`${redHat.className} text-black text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8`}>
-                  Native Mobil Uygulama Geliştirme
+                  Native Mobile App Development
                 </h2>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal`}>
-                  iOS ve Android platformları için native mobil uygulamalar geliştiriyoruz. Her platforma özel yaklaşımımız ve deneyimli ekibimizle, kullanıcılarınıza en iyi deneyimi sunuyoruz.
+                  We develop native mobile applications for iOS and Android platforms. With our platform-specific approach and experienced team, we provide the best experience to your users.
                 </p>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal mt-4 md:mt-6`}>
-                  Kullanıcı deneyimini ön planda tutarak, her platformun kendi tasarım dilini ve özelliklerini en iyi şekilde kullanıyoruz. Yüksek performanslı, güvenli ve ölçeklenebilir mobil uygulamalar ile işletmenizi mobil dünyada öne çıkarıyoruz.
+                  Prioritizing user experience, we utilize each platform's own design language and features to the fullest. We make your business stand out in the mobile world with high-performance, secure and scalable mobile applications.
                 </p>
               </div>
               <div className="h-[300px] md:h-[400px] order-2 md:order-1">
-                <img 
-                  src="/images/mobilgorsel1.png" 
-                  alt="Native Mobil Uygulama Geliştirme" 
+                <img
+                  src="/images/mobilgorsel1.png"
+                  alt="Native Mobile App Development"
                   className="w-full h-full object-cover object-center rounded-md"
                 />
               </div>
@@ -136,21 +136,21 @@ export default function MobileApp() {
           <div className="max-w-[1400px] mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div className="h-[300px] md:h-[400px] order-2 md:order-1">
-                <img 
-                  src="/images/mobilgorsel2.png" 
-                  alt="Cross-Platform Mobil Uygulama" 
+                <img
+                  src="/images/mobilgorsel2.png"
+                  alt="Cross-Platform Mobile App"
                   className="w-full h-full object-cover object-center rounded-md"
                 />
               </div>
               <div className="order-1 md:order-2">
                 <h2 className={`${redHat.className} text-black text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8`}>
-                  Cross-Platform Çözümler
+                  Cross-Platform Solutions
                 </h2>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal`}>
-                  React Native ve Flutter gibi modern teknolojilerle, tek kod tabanından birden fazla platformda çalışan uygulamalar geliştiriyoruz. Maliyet ve zaman avantajı sağlayan cross-platform çözümlerimizle, projenizi hızla hayata geçiriyoruz.
+                  Using modern technologies like React Native and Flutter, we develop applications that work on multiple platforms from a single codebase. Our cross-platform solutions provide cost and time advantages, bringing your project to life quickly.
                 </p>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal mt-4 md:mt-6`}>
-                  Her platformda native performans ve görünüm sunan cross-platform uygulamalarımız, işletmenizin mobil stratejisini güçlendiriyor. Hızlı geliştirme süreci ve kolay güncellenebilirlik ile rekabet avantajı sağlıyoruz.
+                  Our cross-platform applications offer native performance and appearance on every platform, strengthening your business's mobile strategy. We provide competitive advantage with fast development process and easy updateability.
                 </p>
               </div>
             </div>
@@ -162,19 +162,19 @@ export default function MobileApp() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
                 <h2 className={`${redHat.className} text-black text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8`}>
-                  Özel Mobil Çözümler
+                  Custom Mobile Solutions
                 </h2>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal`}>
-                  İşletmenizin ihtiyaçlarına özel mobil uygulamalar geliştiriyoruz. E-ticaret, içerik yönetimi, müşteri sadakat programları ve özel iş süreçleri için mobil çözümler sunuyoruz.
+                  We develop custom mobile applications tailored to your business needs. We offer mobile solutions for e-commerce, content management, customer loyalty programs and special business processes.
                 </p>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal mt-4 md:mt-6`}>
-                  Güçlü backend sistemleri, API entegrasyonları ve analitik araçlarıyla desteklenen mobil uygulamalarımız, işletmenizin dijital dönüşümüne katkı sağlıyor. Kullanıcı dostu arayüzler ve özelleştirilmiş fonksiyonlarla müşterilerinize benzersiz bir deneyim sunuyoruz.
+                  Our mobile applications supported by powerful backend systems, API integrations and analytics tools contribute to your business's digital transformation. We offer a unique experience to your customers with user-friendly interfaces and customized functions.
                 </p>
               </div>
               <div className="h-[300px] md:h-[400px]">
-                <img 
-                  src="/images/mobilgorsel3.png" 
-                  alt="Özel Mobil Çözümler" 
+                <img
+                  src="/images/mobilgorsel3.png"
+                  alt="Custom Mobile Solutions"
                   className="w-full h-full object-contain object-center rounded-md"
                 />
               </div>
@@ -187,41 +187,41 @@ export default function MobileApp() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
                 <h2 className={`${redHat.className} text-white text-3xl md:text-4xl lg:text-5xl font-light mb-6 md:mb-8`}>
-                  Mobil projenizi adım adım hayata geçirelim
+                  Let's bring your mobile project to life step by step
                 </h2>
                 <p className={`${redHat.className} text-white text-lg md:text-xl font-light mb-8 md:mb-12`}>
-                  Profesyonel ekibimizle ihtiyaçlarınıza özel çözümler sunuyoruz
+                  We offer custom solutions tailored to your needs with our professional team
                 </p>
-                
+
                 <div className="mt-8 md:mt-12">
-                  <button 
-                    onClick={() => setIsContactOpen(true)}
+                  <button
+                    href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                     className="bg-[#11fb96] text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md hover:bg-opacity-90 transition-all"
                   >
-                    Bizimle İletişime Geçin
+                    Get in Touch
                   </button>
                 </div>
               </div>
-              
+
               <div className="mt-8 md:mt-0">
-                <AccordionSection 
-                  number="1" 
-                  title="İhtiyaç analizi ve planlama" 
+                <AccordionSection
+                  number="1"
+                  title="Needs analysis and planning"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="2" 
-                  title="UI/UX tasarımı" 
+                <AccordionSection
+                  number="2"
+                  title="UI/UX design"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="3" 
-                  title="Geliştirme ve test" 
+                <AccordionSection
+                  number="3"
+                  title="Development and testing"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="4" 
-                  title="Mağaza yayını ve bakım" 
+                <AccordionSection
+                  number="4"
+                  title="Store publishing and maintenance"
                   isOpen={false}
                 />
               </div>
@@ -232,74 +232,74 @@ export default function MobileApp() {
         <section className="bg-[#f0f0f5] py-16 md:py-32" style={{ background: 'radial-gradient(100% 100% at 100% -10%, rgba(17, 251, 150, 0.2) 0%, rgba(17, 251, 150, 0) 100%), #f0f0f5' }}>
           <div className="max-w-[1400px] mx-auto px-4 md:px-6">
             <h2 className={`${redHat.className} text-center text-3xl md:text-4xl font-light mb-12 md:mb-20 text-black`}>
-              Mobil çözümlerimizin avantajları
+              Advantages of our mobile solutions
             </h2>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
-              <FeatureCard 
+              <FeatureCard
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 md:w-12 md:h-12 text-[#11fb96]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                 }
-                title="Native Performans"
-                description="Her platformun kendi özelliklerini kullanarak yüksek performanslı uygulamalar geliştiriyoruz. Akıcı kullanıcı deneyimi ve hızlı çalışma ile kullanıcılarınızı memnun ediyoruz."
+                title="Native Performance"
+                description="We develop high-performance applications using each platform's own features. We satisfy your users with smooth user experience and fast operation."
               />
-              
-              <FeatureCard 
+
+              <FeatureCard
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 md:w-12 md:h-12 text-[#11fb96]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 }
-                title="Güvenli Altyapı"
-                description="En güncel güvenlik standartlarını uygulayarak kullanıcı verilerini koruyoruz. SSL şifreleme, güvenli veri depolama ve düzenli güvenlik güncellemeleri ile uygulamanızı güvende tutuyoruz."
+                title="Secure Infrastructure"
+                description="We protect user data by applying the latest security standards. We keep your application safe with SSL encryption, secure data storage and regular security updates."
               />
-              
-              <FeatureCard 
+
+              <FeatureCard
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 md:w-12 md:h-12 text-[#11fb96]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                 }
-                title="Kesintisiz Güncelleme"
-                description="Düzenli bakım ve güncellemelerle uygulamanızı her zaman güncel tutuyoruz. Yeni özellikler, performans iyileştirmeleri ve güvenlik güncellemeleri ile uygulamanızı sürekli geliştiriyoruz."
+                title="Seamless Updates"
+                description="We keep your application up-to-date with regular maintenance and updates. We continuously improve your application with new features, performance improvements and security updates."
               />
-              
-              <FeatureCard 
+
+              <FeatureCard
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 md:w-12 md:h-12 text-[#11fb96]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                   </svg>
                 }
-                title="Özelleştirilebilir Tasarım"
-                description="Markanızın kimliğini yansıtan, tamamen özelleştirilmiş arayüzler tasarlıyoruz. Modern tasarım trendleri ve kullanıcı deneyimi prensipleriyle uygulamanızı öne çıkarıyoruz."
+                title="Customizable Design"
+                description="We design fully customized interfaces that reflect your brand identity. We make your application stand out with modern design trends and user experience principles."
               />
-              
-              <FeatureCard 
+
+              <FeatureCard
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 md:w-12 md:h-12 text-[#11fb96]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 }
-                title="Detaylı Analitik"
-                description="Kullanıcı davranışlarını ve uygulama performansını ölçen analitik araçlar entegre ediyoruz. Veriye dayalı kararlar almanızı sağlayan detaylı raporlar ve analizler sunuyoruz."
+                title="Detailed Analytics"
+                description="We integrate analytics tools that measure user behavior and application performance. We provide detailed reports and analyses that enable you to make data-driven decisions."
               />
-              
-              <FeatureCard 
+
+              <FeatureCard
                 icon={
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 md:w-12 md:h-12 text-[#11fb96]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                   </svg>
                 }
-                title="Bulut Entegrasyonu"
-                description="Güçlü bulut altyapısı ile uygulamanızı destekliyoruz. Veri yedekleme, senkronizasyon ve ölçeklenebilir sunucu çözümleri ile kesintisiz hizmet sunuyoruz."
+                title="Cloud Integration"
+                description="We support your application with powerful cloud infrastructure. We provide uninterrupted service with data backup, synchronization and scalable server solutions."
               />
             </div>
           </div>
         </section>
       </div>
-      <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      
     </>
   )
 }
@@ -321,8 +321,8 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
 
   return (
     <div className="border-t border-gray-700 py-4 md:py-6">
-      <div 
-        className="flex items-center justify-between cursor-pointer" 
+      <div
+        className="flex items-center justify-between cursor-pointer"
         onClick={() => setOpen(!open)}
       >
         <div className="flex items-center">
@@ -342,10 +342,10 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
           )}
         </div>
       </div>
-      
+
       <AnimatePresence>
         {open && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -353,14 +353,14 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
             className="mt-3 md:mt-4 pl-4 md:pl-8 overflow-hidden"
           >
             <p className={`${redHat.className} text-gray-400 text-sm md:text-base font-light`}>
-              {number === "1" && "İşletmenizin hedeflerini ve ihtiyaçlarını detaylı olarak analiz ederek, mobil projenizin kapsamını belirliyoruz. Hedef kitlenizi, rekabet ortamınızı ve teknik gereksinimleri değerlendirerek, size özel bir yol haritası oluşturuyoruz."}
-              {number === "2" && "Kullanıcı deneyimini ön planda tutarak, her platformun tasarım dilini ve özelliklerini en iyi şekilde kullanan arayüzler tasarlıyoruz. Wireframe ve prototip aşamalarında sizinle yakın çalışarak, beklentilerinizi tam olarak karşılayan tasarımlar geliştiriyoruz."}
-              {number === "3" && "Modern teknolojiler ve en iyi geliştirme pratikleriyle uygulamanızı kodluyoruz. Kapsamlı test süreçleriyle her detayı kontrol ediyor, hataları gideriyor ve performansı optimize ediyoruz."}
-              {number === "4" && "Uygulamanızı App Store ve Google Play Store'da yayına hazırlıyor ve yayınlıyoruz. Yayın sonrası düzenli bakım, güncelleme ve destek hizmetleriyle uygulamanızın sürekli gelişimini sağlıyoruz."}
+              {number === "1" && "We analyze your business goals and needs in detail, determining the scope of your mobile project. By evaluating your target audience, competitive environment and technical requirements, we create a customized roadmap for you."}
+              {number === "2" && "Prioritizing user experience, we design interfaces that best utilize each platform's design language and features. Working closely with you during wireframe and prototype stages, we develop designs that fully meet your expectations."}
+              {number === "3" && "We code your application with modern technologies and best development practices. We check every detail with comprehensive testing processes, fix bugs and optimize performance."}
+              {number === "4" && "We prepare and publish your application on the App Store and Google Play Store. We ensure continuous development of your application with regular maintenance, updates and support services after launch."}
             </p>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
-} 
+}

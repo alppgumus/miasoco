@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Meta Reklamları ve Sosyal Medya Yönetimi | Miaso",
-  description: "Instagram ve Facebook'ta profesyonel reklam yönetimi. Hedef kitlenize özel reklam stratejileri, kreatif içerik üretimi ve performans optimizasyonu ile sosyal medyada öne çıkın.",
-  keywords: "meta reklamları, instagram reklamları, facebook reklamları, sosyal medya yönetimi, sosyal medya reklamları, meta ads, instagram ads, facebook ads",
+  title: "Meta Ads & Social Media Management | Miaso - Instagram & Facebook",
+  description: "Professional ad management on Instagram and Facebook. Stand out on social media with custom ad strategies, creative content production and performance optimization.",
+  keywords: "meta ads, instagram ads, facebook ads, social media management, social media advertising, meta advertising, instagram marketing, facebook marketing",
   openGraph: {
-    title: "Meta Reklamları ve Sosyal Medya Yönetimi | Miaso",
-    description: "Instagram ve Facebook'ta profesyonel reklam yönetimi ile markanızı büyütün.",
+    title: "Meta Ads & Social Media Management | Miaso",
+    description: "Grow your brand with professional ad management on Instagram and Facebook.",
     url: "https://miaso.co/socialmedia",
     type: "website",
   },
-} 
+  twitter: {
+    card: "summary_large_image",
+    title: "Meta Ads & Social Media Management | Miaso",
+    description: "Grow your brand with professional ad management on Instagram and Facebook.",
+  },
+  alternates: {
+    canonical: "https://miaso.co/socialmedia",
+  },
+}

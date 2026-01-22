@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Red_Hat_Display } from "next/font/google";
-import ContactPopup from '../../components/ContactPopup';
+const CONTACT_EMAIL = 'info@miaso.co';
 import { useState, useRef, useEffect } from 'react';
 
 const redHat = Red_Hat_Display({
@@ -15,8 +15,8 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
 
   return (
     <div className="border-t border-gray-700 py-4 md:py-6">
-      <div 
-        className="flex items-center justify-between cursor-pointer" 
+      <div
+        className="flex items-center justify-between cursor-pointer"
         onClick={() => setOpen(!open)}
       >
         <div className="flex items-center">
@@ -25,7 +25,7 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
         </div>
         <div className="text-white transition-transform duration-300" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-6 md:h-6">
-            <path d="M6 9l6 6 6-6"/>
+            <path d="M6 9l6 6 6-6" />
           </svg>
         </div>
       </div>
@@ -37,16 +37,16 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
       >
         <div className="pt-4 text-gray-400">
           {number === "1" && (
-            "Hedef kitlenizi analiz ediyor, Instagram ve Facebook'ta en etkili reklam stratejilerini oluşturuyoruz."
+            "We analyze your target audience and create the most effective ad strategies on Instagram and Facebook."
           )}
           {number === "2" && (
-            "Görsel ve video reklamlarınızı profesyonel ekibimizle hazırlıyor, dikkat çekici içerikler üretiyoruz."
+            "We prepare your visual and video ads with our professional team, producing eye-catching content."
           )}
           {number === "3" && (
-            "Reklam bütçenizi optimize ediyor, en yüksek dönüşüm oranlarını elde etmenizi sağlıyoruz."
+            "We optimize your ad budget and help you achieve the highest conversion rates."
           )}
           {number === "4" && (
-            "Detaylı raporlama ve analizlerle kampanyalarınızın performansını sürekli takip ediyoruz."
+            "We continuously track your campaign performance with detailed reporting and analyses."
           )}
         </div>
       </motion.div>
@@ -55,7 +55,7 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
 }
 
 export default function SocialMedia() {
-  const [isContactOpen, setIsContactOpen] = useState(false)
+  
   const [isMounted, setIsMounted] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -78,24 +78,24 @@ export default function SocialMedia() {
         }}>
           <div className="container mx-auto px-4 pt-32 pb-20">
             <div className="flex flex-col items-center text-center max-w-[1200px] mx-auto">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className={`${redHat.className} text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-gray-900`}
               >
-                Meta Reklamları ile <br />
-                <span className="text-[#00c16a]">Hedef Kitlenize Ulaşın</span>
+                Reach Your Target Audience <br />
+                <span className="text-[#00c16a]">with Meta Ads</span>
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className={`${redHat.className} text-lg md:text-xl text-gray-600 max-w-3xl mt-8 font-light`}
               >
-                Instagram ve Facebook'ta etkili reklam yönetimi ile markanızı büyütün. 
-                Hedef kitlenize özel reklam stratejileri ve kreatif içeriklerle sosyal medyada öne çıkın.
+                Grow your brand with effective ad management on Instagram and Facebook.
+                Stand out on social media with advertising strategies tailored to your target audience and creative content.
               </motion.p>
 
               <motion.div
@@ -104,15 +104,15 @@ export default function SocialMedia() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex gap-4 mt-8"
               >
-                <button 
-                  onClick={() => setIsContactOpen(true)}
+                <button
+                  href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                   className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-8 py-4 rounded-lg font-medium transition-all"
                 >
-                  Bizimle İletişime Geç
+                  Get in Touch
                 </button>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -140,19 +140,19 @@ export default function SocialMedia() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
                 <h2 className={`${redHat.className} text-black text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8`}>
-                  Profesyonel Meta Reklam Yönetimi
+                  Professional Meta Ad Management
                 </h2>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal`}>
-                  Instagram ve Facebook'ta markanızı doğru hedef kitleye ulaştırıyor, etkili reklam stratejileri ile satışlarınızı artırıyoruz. Meta'nın tüm reklam formatlarını kullanarak, markanıza özel çözümler sunuyoruz.
+                  We reach your brand to the right target audience on Instagram and Facebook, increasing your sales with effective advertising strategies. We offer custom solutions for your brand using all of Meta's ad formats.
                 </p>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal mt-4 md:mt-6`}>
-                  Detaylı hedefleme seçenekleri, kreatif içerik üretimi ve performans optimizasyonu ile sosyal medya reklamlarınızı yönetiyoruz.
+                  We manage your social media ads with detailed targeting options, creative content production and performance optimization.
                 </p>
               </div>
               <div className="h-[300px] md:h-[400px]">
-                <img 
-                  src="/images/metareklam.webp" 
-                  alt="Meta Reklamları" 
+                <img
+                  src="/images/metareklam.webp"
+                  alt="Meta Ads"
                   className="w-full h-full object-contain rounded-md"
                 />
               </div>
@@ -165,41 +165,41 @@ export default function SocialMedia() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
                 <h2 className={`${redHat.className} text-white text-3xl md:text-4xl lg:text-5xl font-light mb-6 md:mb-8`}>
-                  Meta reklamlarında uzman ekip
+                  Expert team in Meta ads
                 </h2>
                 <p className={`${redHat.className} text-white text-lg md:text-xl font-light mb-8 md:mb-12`}>
-                  Profesyonel ekibimizle markanızı sosyal medyada büyütüyoruz
+                  We grow your brand on social media with our professional team
                 </p>
-                
+
                 <div className="mt-8 md:mt-12">
-                  <button 
-                    onClick={() => setIsContactOpen(true)}
+                  <button
+                    href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                     className="bg-[#11fb96] text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md hover:bg-opacity-90 transition-all"
                   >
-                    Bizimle İletişime Geçin
+                    Get in Touch
                   </button>
                 </div>
               </div>
-              
+
               <div className="mt-8 md:mt-0">
-                <AccordionSection 
-                  number="1" 
-                  title="Hedef Kitle Analizi" 
+                <AccordionSection
+                  number="1"
+                  title="Target Audience Analysis"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="2" 
-                  title="Kreatif İçerik Üretimi" 
+                <AccordionSection
+                  number="2"
+                  title="Creative Content Production"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="3" 
-                  title="Bütçe Optimizasyonu" 
+                <AccordionSection
+                  number="3"
+                  title="Budget Optimization"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="4" 
-                  title="Performans Takibi" 
+                <AccordionSection
+                  number="4"
+                  title="Performance Tracking"
                   isOpen={false}
                 />
               </div>
@@ -211,29 +211,29 @@ export default function SocialMedia() {
           <div className="max-w-[1400px] mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div className="h-[300px] md:h-[400px]">
-                <img 
-                  src="/images/metareklam2.webp" 
-                  alt="Meta Reklam Çözümleri" 
+                <img
+                  src="/images/metareklam2.webp"
+                  alt="Meta Ad Solutions"
                   className="w-full h-full object-contain rounded-md"
                 />
               </div>
               <div>
                 <h2 className={`${redHat.className} text-black text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8`}>
-                  Neden Meta Reklamları?
+                  Why Meta Ads?
                 </h2>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal`}>
-                  Meta'nın sunduğu geniş hedefleme seçenekleri ve reklam formatları ile potansiyel müşterilerinize kolayca ulaşabilirsiniz. Instagram ve Facebook'un birleşik gücüyle markanızın bilinirliğini artırın.
+                  With Meta's extensive targeting options and ad formats, you can easily reach your potential customers. Increase your brand awareness with the combined power of Instagram and Facebook.
                 </p>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal mt-4 md:mt-6`}>
-                  Story reklamları, carousel reklamlar, video reklamlar ve daha fazlası ile hedef kitlenizin dikkatini çekin. Detaylı raporlama araçlarıyla kampanyalarınızın performansını anlık takip edin.
+                  Capture your target audience's attention with Story ads, carousel ads, video ads and more. Track your campaign performance in real-time with detailed reporting tools.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#f0f0f5] py-16 md:py-32" style={{ 
-          background: 'radial-gradient(100% 100% at 100% 100%, rgba(17, 251, 150, 0.1) 0%, rgba(17, 251, 150, 0) 100%), #f0f0f5' 
+        <section className="bg-[#f0f0f5] py-16 md:py-32" style={{
+          background: 'radial-gradient(100% 100% at 100% 100%, rgba(17, 251, 150, 0.1) 0%, rgba(17, 251, 150, 0) 100%), #f0f0f5'
         }}>
           <div className="max-w-[1400px] mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
@@ -244,10 +244,10 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Hedefleme Seçenekleri
+                  Targeting Options
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Yaş, cinsiyet, konum, ilgi alanları ve davranışlara göre hedefleme yaparak doğru kitleye ulaşın.
+                  Reach the right audience by targeting based on age, gender, location, interests and behaviors.
                 </p>
               </div>
 
@@ -258,10 +258,10 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Görsel & Video Reklamlar
+                  Visual & Video Ads
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Story, Reels, carousel ve feed reklamları ile hedef kitlenizin dikkatini çekin.
+                  Capture your target audience's attention with Story, Reels, carousel and feed ads.
                 </p>
               </div>
 
@@ -272,10 +272,10 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Performans Analizi
+                  Performance Analysis
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Detaylı raporlama araçlarıyla kampanyalarınızın performansını anlık takip edin.
+                  Track your campaign performance in real-time with detailed reporting tools.
                 </p>
               </div>
 
@@ -286,10 +286,10 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Bütçe Kontrolü
+                  Budget Control
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Günlük veya kampanya bazlı bütçe yönetimi ile harcamalarınızı kontrol altında tutun.
+                  Keep your spending under control with daily or campaign-based budget management.
                 </p>
               </div>
 
@@ -300,10 +300,10 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Hedef Kitle Analizi
+                  Target Audience Analysis
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Hedef kitlenizin demografik özelliklerini ve davranışlarını analiz edin.
+                  Analyze the demographic characteristics and behaviors of your target audience.
                 </p>
               </div>
 
@@ -314,17 +314,17 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Hızlı Optimizasyon
+                  Quick Optimization
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Kampanya performansına göre hızlı optimizasyonlar yaparak dönüşüm oranlarını artırın.
+                  Increase conversion rates with quick optimizations based on campaign performance.
                 </p>
               </div>
             </div>
           </div>
         </section>
       </div>
-      <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      
     </>
   )
-} 
+}

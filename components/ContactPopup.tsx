@@ -63,7 +63,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -81,12 +81,12 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Bir hata oluştu');
+        throw new Error(data.error || 'An error occurred');
       }
 
-      // Form başarıyla gönderildi
-      alert('Mesajınız başarıyla gönderildi!');
-      // Formu sıfırla
+      // Form successfully submitted
+      alert('Your message has been sent successfully!');
+      // Reset form
       setFormData({
         name: '',
         company: '',
@@ -96,8 +96,8 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
       setIsSubmitting(false)
       onClose()
     } catch (error) {
-      alert('Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
-      console.error('Form gönderme hatası:', error);
+      alert('An error occurred while sending your message. Please try again.');
+      console.error('Form submission error:', error);
       setIsSubmitting(false)
     }
   };
@@ -105,22 +105,22 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-30 backdrop-blur-sm"
         >
-          <div 
+          <div
             className="flex min-h-full items-center justify-center p-4"
             onClick={handleBackdropClick}
           >
-            <motion.div 
+            <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 20, opacity: 0 }}
-              transition={{ 
+              transition={{
                 type: "spring",
                 damping: 25,
                 stiffness: 300
@@ -142,15 +142,15 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
               <div className="mt-6">
                 <h3 className="text-3xl font-semibold leading-7 text-gray-900">
-                  Detaylı bilgi için formu doldurun,
+                  Fill out the form for more info,
                   <br />
-                  sizi arayalım.
+                  we'll call you.
                 </h3>
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                   <div className="relative">
                     <label className="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">
-                      Ad Soyad
+                      Full Name
                     </label>
                     <input
                       type="text"
@@ -163,7 +163,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
                   <div className="relative">
                     <label className="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">
-                      Firma Adı
+                      Company Name
                     </label>
                     <input
                       type="text"
@@ -176,7 +176,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
                   <div className="relative">
                     <label className="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">
-                      E-posta
+                      Email
                     </label>
                     <input
                       type="email"
@@ -190,7 +190,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
                   <div className="relative">
                     <label className="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">
-                      Telefon
+                      Phone
                     </label>
                     <input
                       ref={phoneInputRef}
@@ -212,13 +212,12 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     <button
                       type="submit"
                       disabled={!isFormValid() || isSubmitting}
-                      className={`w-full h-[44px] rounded-full transition-colors flex items-center justify-center space-x-2 ${
-                        isFormValid() && !isSubmitting
+                      className={`w-full h-[44px] rounded-full transition-colors flex items-center justify-center space-x-2 ${isFormValid() && !isSubmitting
                           ? 'bg-black hover:bg-gray-900 text-white'
                           : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      }`}
+                        }`}
                     >
-                      <span>{isSubmitting ? 'Gönderiliyor...' : 'Gönder'}</span>
+                      <span>{isSubmitting ? 'Sending...' : 'Submit'}</span>
                     </button>
                   </div>
                 </form>

@@ -25,7 +25,7 @@ export default function Home() {
             "name": "Miaso",
             "url": "https://miaso.co",
             "logo": "https://miaso.co/miasologo.png",
-            "description": "360° dijital dönüşüm ve teknoloji çözümleri sunan profesyonel dijital ajans",
+            "description": "Professional digital agency offering 360° digital transformation and technology solutions",
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "TR"
@@ -40,47 +40,47 @@ export default function Home() {
               "offers": [
                 {
                   "@type": "Offer",
-                  "category": "Dijital Dönüşüm",
-                  "name": "360° Dijital Dönüşüm Çözümleri",
-                  "description": "İşletmenizi dijital dünyaya taşıyan kapsamlı teknoloji ve danışmanlık hizmetleri"
+                  "category": "Digital Transformation",
+                  "name": "360° Digital Transformation Solutions",
+                  "description": "Comprehensive technology and consulting services to take your business to the digital world"
                 },
                 {
                   "@type": "Offer",
-                  "category": "Yazılım Geliştirme",
-                  "name": "Özel Yazılım Çözümleri",
-                  "description": "Web uygulamaları, mobil uygulamalar ve kurumsal yazılım çözümleri"
+                  "category": "Software Development",
+                  "name": "Custom Software Solutions",
+                  "description": "Web applications, mobile applications and enterprise software solutions"
                 },
                 {
                   "@type": "Offer",
-                  "category": "E-Ticaret",
-                  "name": "E-Ticaret Sistemleri",
-                  "description": "Online satış sistemleri kurulumu ve yönetimi"
+                  "category": "E-Commerce",
+                  "name": "E-Commerce Systems",
+                  "description": "Online sales systems setup and management"
                 },
                 {
                   "@type": "Offer",
-                  "category": "Dijital Pazarlama",
-                  "name": "Dijital Pazarlama ve Reklam",
-                  "description": "Sosyal medya yönetimi, SEO ve reklam kampanyaları"
+                  "category": "Digital Marketing",
+                  "name": "Digital Marketing and Advertising",
+                  "description": "Social media management, SEO and advertising campaigns"
                 }
               ]
             },
             "serviceArea": {
               "@type": "Place",
-              "name": "Türkiye",
+              "name": "Turkey",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "TR"
               }
             },
             "knowsAbout": [
-              "Dijital Dönüşüm",
-              "Web Geliştirme",
-              "Mobil Uygulama Geliştirme",
-              "E-Ticaret Sistemleri",
-              "Dijital Pazarlama",
-              "SEO Optimizasyonu",
-              "Sosyal Medya Yönetimi",
-              "UI/UX Tasarımı"
+              "Digital Transformation",
+              "Web Development",
+              "Mobile App Development",
+              "E-Commerce Systems",
+              "Digital Marketing",
+              "SEO Optimization",
+              "Social Media Management",
+              "UI/UX Design"
             ]
           }
         `}

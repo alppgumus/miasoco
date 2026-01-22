@@ -1,28 +1,28 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Miaso | Dijital Dönüşümünüzün Mimarı',
-  description: 'Miaso, dijital dönüşüm sürecinizde yanınızda. Web sitesi, mobil uygulama, e-ticaret çözümleri ve dijital pazarlama hizmetleri sunuyoruz.',
-  keywords: "dijital dönüşüm, teknoloji çözümleri, web tasarım, e-ticaret çözümleri, mobil uygulama geliştirme, dijital pazarlama, sosyal medya yönetimi, kurumsal çözümler, yazılım geliştirme, dijital ajans",
+  title: 'Miaso | The Architect of Your Digital Transformation',
+  description: 'Miaso is by your side in your digital transformation journey. We offer website, mobile app, e-commerce solutions and digital marketing services.',
+  keywords: "digital transformation, technology solutions, web design, e-commerce solutions, mobile app development, digital marketing, social media management, corporate solutions, software development, digital agency",
   openGraph: {
     type: "website",
     url: "https://miaso.co",
-    title: "Miaso | Dijital Dönüşüm ve Teknoloji Çözümleri",
-    description: "360° dijital dönüşüm çözümleriyle işletmenizi geleceğe taşıyoruz. Profesyonel teknoloji ve yazılım çözümleri için Miaso yanınızda.",
+    title: "Miaso | Digital Transformation and Technology Solutions",
+    description: "We take your business to the future with 360° digital transformation solutions. Miaso is by your side for professional technology and software solutions.",
     siteName: "Miaso",
     images: [{
       url: "/og-image.jpg",
       width: 1200,
       height: 630,
-      alt: "Miaso - Dijital Dönüşüm ve Teknoloji Çözümleri"
+      alt: "Miaso - Digital Transformation and Technology Solutions"
     }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@miaso.co",
     creator: "@miaso.co",
-    title: "Miaso | Dijital Dönüşüm ve Teknoloji Çözümleri",
-    description: "360° dijital dönüşüm çözümleriyle işletmenizi geleceğe taşıyoruz. Profesyonel teknoloji ve yazılım çözümleri için Miaso yanınızda.",
+    title: "Miaso | Digital Transformation and Technology Solutions",
+    description: "We take your business to the future with 360° digital transformation solutions. Miaso is by your side for professional technology and software solutions.",
     images: ["/og-image.jpg"],
   },
 }; 

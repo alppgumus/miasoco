@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobil Uygulama Geliştirme Hizmetleri | Miaso",
-  description: "İşletmeniz için özel, kullanıcı dostu ve yenilikçi mobil uygulamalar geliştiriyoruz. iOS ve Android platformları için profesyonel mobil uygulama geliştirme hizmetleri.",
-  keywords: "mobil uygulama geliştirme, iOS uygulama, Android uygulama, özel mobil yazılım, mobil app tasarım, cross-platform uygulama",
+  title: "Mobile App Development Services | Miaso - iOS & Android",
+  description: "We develop custom, user-friendly and innovative mobile applications for your business. Professional mobile app development services for iOS and Android platforms.",
+  keywords: "mobile app development, iOS app, Android app, custom mobile software, mobile app design, cross-platform app, React Native, Flutter",
   openGraph: {
-    title: "Mobil Uygulama Geliştirme Hizmetleri | Miaso",
-    description: "İşletmeniz için özel, kullanıcı dostu ve yenilikçi mobil uygulamalar geliştiriyoruz.",
+    title: "Mobile App Development Services | Miaso",
+    description: "We develop custom, user-friendly and innovative mobile applications for your business.",
     url: "https://miaso.co/mobileapp",
     type: "website",
   },
-} 
+  twitter: {
+    card: "summary_large_image",
+    title: "Mobile App Development Services | Miaso",
+    description: "We develop custom, user-friendly and innovative mobile applications for your business.",
+  },
+  alternates: {
+    canonical: "https://miaso.co/mobileapp",
+  },
+}

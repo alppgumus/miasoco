@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { Red_Hat_Display } from "next/font/google";
-import ContactPopup from '../../components/ContactPopup';
+const CONTACT_EMAIL = 'info@miaso.co';
 import { useState, useRef, useEffect } from 'react';
-import type { Metadata } from "next";
 
 const redHat = Red_Hat_Display({
   subsets: ["latin"],
@@ -16,8 +15,8 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
 
   return (
     <div className="border-t border-gray-700 py-4 md:py-6">
-      <div 
-        className="flex items-center justify-between cursor-pointer" 
+      <div
+        className="flex items-center justify-between cursor-pointer"
         onClick={() => setOpen(!open)}
       >
         <div className="flex items-center">
@@ -26,7 +25,7 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
         </div>
         <div className="text-white transition-transform duration-300" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-6 md:h-6">
-            <path d="M6 9l6 6 6-6"/>
+            <path d="M6 9l6 6 6-6" />
           </svg>
         </div>
       </div>
@@ -38,16 +37,16 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
       >
         <div className="pt-4 text-gray-400">
           {number === "1" && (
-            "Arama ağı, görüntülü reklam ağı ve YouTube reklamları için kapsamlı anahtar kelime analizi yapıyoruz."
+            "We conduct comprehensive keyword analysis for search network, display network and YouTube ads."
           )}
           {number === "2" && (
-            "Reklam metinlerinizi ve görsellerinizi hedef kitlenize uygun olarak optimize ediyoruz."
+            "We optimize your ad copy and visuals to match your target audience."
           )}
           {number === "3" && (
-            "Kampanya performanslarını sürekli takip ediyor, bütçenizi en verimli şekilde yönetiyoruz."
+            "We continuously monitor campaign performance and manage your budget most efficiently."
           )}
           {number === "4" && (
-            "Dönüşüm oranlarını artırmak için landing page optimizasyonları ve A/B testleri yapıyoruz."
+            "We conduct landing page optimizations and A/B tests to increase conversion rates."
           )}
         </div>
       </motion.div>
@@ -56,7 +55,7 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
 }
 
 export default function GoogleAds() {
-  const [isContactOpen, setIsContactOpen] = useState(false)
+  
   const [isMounted, setIsMounted] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -79,24 +78,24 @@ export default function GoogleAds() {
         }}>
           <div className="container mx-auto px-4 pt-32 pb-20">
             <div className="flex flex-col items-center text-center max-w-[1200px] mx-auto">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className={`${redHat.className} text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-gray-900`}
               >
-                Google Ads ile <br />
-                <span className="text-[#00c16a]">Potansiyel Müşterilerinize Ulaşın</span>
+                Reach Your Potential Customers <br />
+                <span className="text-[#00c16a]">with Google Ads</span>
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className={`${redHat.className} text-lg md:text-xl text-gray-600 max-w-3xl mt-8 font-light`}
               >
-                Arama ağı, görüntülü reklam ağı ve YouTube reklamları ile doğru hedef kitleye ulaşın. 
-                Profesyonel Google Ads yönetimi ile satışlarınızı artırın.
+                Reach the right target audience with search network, display network and YouTube ads.
+                Increase your sales with professional Google Ads management.
               </motion.p>
 
               <motion.div
@@ -105,15 +104,15 @@ export default function GoogleAds() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex gap-4 mt-8"
               >
-                <button 
-                  onClick={() => setIsContactOpen(true)}
+                <button
+                  href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                   className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-8 py-4 rounded-lg font-medium transition-all"
                 >
-                  Bizimle İletişime Geç
+                  Get in Touch
                 </button>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -141,19 +140,19 @@ export default function GoogleAds() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
                 <h2 className={`${redHat.className} text-black text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8`}>
-                  Profesyonel Google Ads Yönetimi
+                  Professional Google Ads Management
                 </h2>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal`}>
-                  Google'ın güçlü reklam ağında markanızı öne çıkarıyor, potansiyel müşterilerinize ulaşmanızı sağlıyoruz. Anahtar kelime analizi, reklam metni optimizasyonu ve bütçe yönetimi ile kampanyalarınızı yönetiyoruz.
+                  We make your brand stand out on Google's powerful advertising network and help you reach your potential customers. We manage your campaigns with keyword analysis, ad copy optimization and budget management.
                 </p>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal mt-4 md:mt-6`}>
-                  Detaylı raporlama ve analitik araçlarımızla kampanyalarınızın performansını sürekli takip ediyor, veriye dayalı optimizasyonlarla dönüşüm oranlarınızı artırıyoruz.
+                  We continuously track your campaign performance with our detailed reporting and analytics tools, increasing your conversion rates with data-driven optimizations.
                 </p>
               </div>
               <div className="h-[300px] md:h-[400px]">
-                <img 
-                  src="/images/googleads1.webp" 
-                  alt="Google Ads Yönetimi" 
+                <img
+                  src="/images/googleads1.webp"
+                  alt="Google Ads Management"
                   className="w-full h-full object-contain rounded-md"
                 />
               </div>
@@ -166,41 +165,41 @@ export default function GoogleAds() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div>
                 <h2 className={`${redHat.className} text-white text-3xl md:text-4xl lg:text-5xl font-light mb-6 md:mb-8`}>
-                  Google Ads'de uzman ekip
+                  Expert team in Google Ads
                 </h2>
                 <p className={`${redHat.className} text-white text-lg md:text-xl font-light mb-8 md:mb-12`}>
-                  Profesyonel ekibimizle dijital reklamlarınızı yönetiyoruz
+                  We manage your digital ads with our professional team
                 </p>
-                
+
                 <div className="mt-8 md:mt-12">
-                  <button 
-                    onClick={() => setIsContactOpen(true)}
+                  <button
+                    href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                     className="bg-[#11fb96] text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md hover:bg-opacity-90 transition-all"
                   >
-                    Bizimle İletişime Geçin
+                    Get in Touch
                   </button>
                 </div>
               </div>
-              
+
               <div className="mt-8 md:mt-0">
-                <AccordionSection 
-                  number="1" 
-                  title="Anahtar Kelime Analizi" 
+                <AccordionSection
+                  number="1"
+                  title="Keyword Analysis"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="2" 
-                  title="Reklam Optimizasyonu" 
+                <AccordionSection
+                  number="2"
+                  title="Ad Optimization"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="3" 
-                  title="Bütçe Yönetimi" 
+                <AccordionSection
+                  number="3"
+                  title="Budget Management"
                   isOpen={false}
                 />
-                <AccordionSection 
-                  number="4" 
-                  title="Dönüşüm Optimizasyonu" 
+                <AccordionSection
+                  number="4"
+                  title="Conversion Optimization"
                   isOpen={false}
                 />
               </div>
@@ -212,29 +211,29 @@ export default function GoogleAds() {
           <div className="max-w-[1400px] mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
               <div className="h-[300px] md:h-[400px]">
-                <img 
-                  src="/images/googleads2.webp" 
-                  alt="Google Ads Çözümleri" 
+                <img
+                  src="/images/googleads2.webp"
+                  alt="Google Ads Solutions"
                   className="w-full h-full object-contain rounded-md"
                 />
               </div>
               <div>
                 <h2 className={`${redHat.className} text-black text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8`}>
-                  Neden Google Ads?
+                  Why Google Ads?
                 </h2>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal`}>
-                  Google'ın geniş reklam ağı ile potansiyel müşterilerinize tam da aradıkları anda ulaşın. Arama ağı, görüntülü reklam ağı ve YouTube reklamları ile markanızı her platformda öne çıkarın.
+                  Reach your potential customers exactly when they're searching with Google's extensive advertising network. Stand out your brand on every platform with search network, display network and YouTube ads.
                 </p>
                 <p className={`${redHat.className} text-gray-600 text-base md:text-lg font-normal mt-4 md:mt-6`}>
-                  Coğrafi hedefleme, demografik hedefleme ve ilgi alanı hedeflemesi ile doğru kitleye ulaşın. Detaylı raporlama araçlarıyla kampanyalarınızın performansını anlık takip edin.
+                  Reach the right audience with geographic targeting, demographic targeting and interest targeting. Track your campaign performance in real-time with detailed reporting tools.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#f0f0f5] py-16 md:py-32" style={{ 
-          background: 'radial-gradient(100% 100% at 100% 100%, rgba(17, 251, 150, 0.1) 0%, rgba(17, 251, 150, 0) 100%), #f0f0f5' 
+        <section className="bg-[#f0f0f5] py-16 md:py-32" style={{
+          background: 'radial-gradient(100% 100% at 100% 100%, rgba(17, 251, 150, 0.1) 0%, rgba(17, 251, 150, 0) 100%), #f0f0f5'
         }}>
           <div className="max-w-[1400px] mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
@@ -245,10 +244,10 @@ export default function GoogleAds() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Arama Ağı Reklamları
+                  Search Network Ads
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Potansiyel müşterileriniz arama yaptığında üst sıralarda yer alın.
+                  Appear at the top ranks when your potential customers are searching.
                 </p>
               </div>
 
@@ -259,10 +258,10 @@ export default function GoogleAds() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Görüntülü Reklamlar
+                  Display Ads
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Google'ın geniş reklam ağında görsel reklamlarınızı gösterin.
+                  Show your visual ads on Google's extensive advertising network.
                 </p>
               </div>
 
@@ -273,10 +272,10 @@ export default function GoogleAds() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  YouTube Reklamları
+                  YouTube Ads
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Video reklamlarınızla YouTube'da hedef kitlenize ulaşın.
+                  Reach your target audience on YouTube with your video ads.
                 </p>
               </div>
 
@@ -287,10 +286,10 @@ export default function GoogleAds() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Performans Takibi
+                  Performance Tracking
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Detaylı raporlarla kampanya performansınızı analiz edin.
+                  Analyze your campaign performance with detailed reports.
                 </p>
               </div>
 
@@ -301,10 +300,10 @@ export default function GoogleAds() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Bütçe Kontrolü
+                  Budget Control
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  Günlük ve kampanya bazlı bütçe yönetimi yapın.
+                  Manage daily and campaign-based budgets.
                 </p>
               </div>
 
@@ -315,17 +314,17 @@ export default function GoogleAds() {
                   </svg>
                 </div>
                 <h3 className={`${redHat.className} text-xl md:text-2xl font-light mb-3 md:mb-4 text-black`}>
-                  Dönüşüm Optimizasyonu
+                  Conversion Optimization
                 </h3>
                 <p className={`${redHat.className} text-gray-700 text-base font-normal`}>
-                  A/B testleri ve optimizasyonlarla dönüşüm oranlarını artırın.
+                  Increase conversion rates with A/B tests and optimizations.
                 </p>
               </div>
             </div>
           </div>
         </section>
       </div>
-      <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      
     </>
   )
-} 
+}

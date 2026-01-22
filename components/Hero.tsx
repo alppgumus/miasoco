@@ -1,14 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import ContactPopup from './ContactPopup'
+import { useEffect, useState } from 'react'
 import HeroVisual from './HeroVisual'
 import { AuroraBackground } from './ui/aurora-background'
 import { motion } from 'framer-motion'
 
+const CONTACT_EMAIL = 'info@miaso.co'
+
 const Hero = () => {
-  const [isContactOpen, setIsContactOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -16,7 +15,7 @@ const Hero = () => {
   }, [])
 
   if (!isMounted) {
-    return null // Sayfa ilk yüklendiğinde boş dönüyor
+    return null // Returns empty on initial page load
   }
 
   return (
@@ -32,31 +31,25 @@ const Hero = () => {
               className="mt-8 md:mt-0"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-6 text-left text-white">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                  <span>Dijital</span>
-                  <span style={{ color: '#11fb96' }}>
-                    dönüşümünüzün
-                  </span>
-                </div>
-                <span style={{ color: '#11fb96' }}>
-                  mimarı
-                </span>
+                <span>The architect of your </span>
+                <span style={{ color: '#11fb96' }}>digital</span>
+                <span> world.</span>
               </h1>
               <p className="text-base lg:text-lg mb-8 text-gray-300 text-left max-w-xl leading-relaxed">
-                İşletmenizin dijital potansiyelini ortaya çıkararak büyümenizi hızlandırıyoruz. Web geliştirme, dijital pazarlama, e-ticaret çözümleri ve daha fazlası.
+                We accelerate your growth by unlocking your business's digital potential. Web development, digital marketing, e-commerce solutions and more.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
-                <button 
-                  onClick={() => setIsContactOpen(true)}
+                <a
+                  href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request%20from%20Website`}
                   className="bg-white hover:bg-gray-100 text-black font-semibold py-3 px-8 rounded-full transition-all"
                 >
-                  Bizimle İletişime Geç
-                </button>
+                  Contact Us
+                </a>
               </div>
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -66,11 +59,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      <ContactPopup 
-        isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
-      />
     </AuroraBackground>
   )
 }

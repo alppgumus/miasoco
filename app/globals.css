@@ -8,10 +8,47 @@
   --white: #ffffff;
   --black: #000000;
   --transparent: transparent;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-300: #93c5fd;
+  --indigo-300: #a5b4fc;
+  --violet-200: #ddd6fe;
+}
+
+html {
+  background-color: #000000;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent white flash on page load */
+html,
+body {
+  overscroll-behavior: none;
+}
+
+/* Mobile aurora animation - slower for performance */
+@keyframes aurora-mobile {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-aurora-mobile {
+  animation: aurora-mobile 15s ease-in-out infinite;
 }

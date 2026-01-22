@@ -14,15 +14,26 @@ export const AuroraBackground = ({
   ...props
 }: AuroraBackgroundProps) => {
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    // Check if mobile on mount
+    setIsMobile(window.innerWidth < 768);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // SSR and initial load - simple static background
   if (!isMounted) {
     return (
       <div className={cn(
-        "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-900 text-white",
+        "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-900 text-white pt-[72px]",
         className
       )}>
         {children}
@@ -30,11 +41,45 @@ export const AuroraBackground = ({
     );
   }
 
+  // Mobile - lighter aurora effect (no blur, reduced animation)
+  if (isMobile) {
+    return (
+      <main>
+        <div
+          className={cn(
+            "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-900 text-white pt-[72px]",
+            className
+          )}
+          {...props}
+        >
+          {/* Mobile-optimized aurora - no blur filter, simpler gradient, slower animation */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div
+              className={cn(
+                `
+                [--aurora:linear-gradient(135deg,var(--blue-500)_10%,var(--indigo-300)_30%,var(--violet-200)_50%,var(--blue-400)_70%)]
+                [background-image:var(--aurora)]
+                [background-size:200%_200%]
+                animate-aurora-mobile
+                pointer-events-none
+                absolute inset-0 opacity-40`,
+                showRadialGradient &&
+                `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,transparent_70%)]`
+              )}
+            ></div>
+          </div>
+          {children}
+        </div>
+      </main>
+    );
+  }
+
+  // Desktop - full aurora effect
   return (
     <main>
       <div
         className={cn(
-          "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-900 text-white transition-bg",
+          "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-900 text-white transition-bg pt-[72px]",
           className
         )}
         {...props}
@@ -57,7 +102,7 @@ export const AuroraBackground = ({
               pointer-events-none
               absolute -inset-[10px] opacity-50 will-change-transform`,
               showRadialGradient &&
-                `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
+              `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
             )}
           ></div>
         </div>
@@ -65,4 +110,4 @@ export const AuroraBackground = ({
       </div>
     </main>
   );
-}; 
+};

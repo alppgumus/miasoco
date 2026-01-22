@@ -8,14 +8,16 @@ import Script from 'next/script';
 
 const redHat = Red_Hat_Display({
   subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700']
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://miaso.co'),
-  title: 'Miaso | Dijital Dönüşümünüzün Mimarı',
-  description: 'Miaso, dijital dönüşüm sürecinizde yanınızda. Web sitesi, mobil uygulama, e-ticaret çözümleri ve dijital pazarlama hizmetleri sunuyoruz.',
-  keywords: "dijital dönüşüm, teknoloji çözümleri, web tasarım, e-ticaret çözümleri, mobil uygulama geliştirme, dijital pazarlama, sosyal medya yönetimi, kurumsal çözümler, yazılım geliştirme, dijital ajans",
+  title: 'Miaso | The Architect of Your Digital World',
+  description: 'Miaso is by your side in your digital transformation journey. We offer website, mobile app, e-commerce solutions and digital marketing services.',
+  keywords: "digital transformation, technology solutions, web design, e-commerce solutions, mobile app development, digital marketing, social media management, corporate solutions, software development, digital agency",
   authors: [{ name: "Miaso" }],
   creator: "Miaso",
   publisher: "Miaso",
@@ -35,22 +37,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://miaso.co",
-    title: "Miaso | Dijital Dönüşüm ve Teknoloji Çözümleri",
-    description: "360° dijital dönüşüm çözümleriyle işletmenizi geleceğe taşıyoruz. Profesyonel teknoloji ve yazılım çözümleri için Miaso yanınızda.",
+    title: "Miaso | Digital Transformation and Technology Solutions",
+    description: "We take your business to the future with 360° digital transformation solutions. Miaso is by your side for professional technology and software solutions.",
     siteName: "Miaso",
     images: [{
       url: "/og-image.jpg",
       width: 1200,
       height: 630,
-      alt: "Miaso - Dijital Dönüşüm ve Teknoloji Çözümleri"
+      alt: "Miaso - Digital Transformation and Technology Solutions"
     }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@miaso.co",
     creator: "@miaso.co",
-    title: "Miaso | Dijital Dönüşüm ve Teknoloji Çözümleri",
-    description: "360° dijital dönüşüm çözümleriyle işletmenizi geleceğe taşıyoruz. Profesyonel teknoloji ve yazılım çözümleri için Miaso yanınızda.",
+    title: "Miaso | Digital Transformation and Technology Solutions",
+    description: "We take your business to the future with 360° digital transformation solutions. Miaso is by your side for professional technology and software solutions.",
     images: ["/og-image.jpg"],
   },
 };
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -67,32 +69,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" className="scroll-smooth">
-      <Script id="google-tag-manager" strategy="beforeInteractive">
-        {`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-KXLBH3DG');
-        `}
-      </Script>
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       <body className={redHat.className}>
-        <noscript>
-          <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KXLBH3DG"
-            height="0" 
-            width="0" 
-            style={{display: 'none', visibility: 'hidden'}}
-          />
-        </noscript>
         <Navbar />
         <main className="min-h-screen">
           {children}
         </main>
         <Footer />
         <CookieConsent />
+
+        {/* Google Tag Manager - loaded after page is interactive */}
+        <Script id="google-tag-manager" strategy="lazyOnload">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KXLBH3DG');
+          `}
+        </Script>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KXLBH3DG"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
       </body>
     </html>
   );
 }
+

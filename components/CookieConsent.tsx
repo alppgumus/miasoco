@@ -48,7 +48,7 @@ export default function CookieConsent() {
         },
         lastUpdated: new Date().toISOString()
       };
-      
+
       localStorage.setItem('cookieSettings', JSON.stringify(newSettings));
       setSettings(newSettings);
       setIsVisible(false);
@@ -65,7 +65,7 @@ export default function CookieConsent() {
         consent: true,
         lastUpdated: new Date().toISOString()
       };
-      
+
       localStorage.setItem('cookieSettings', JSON.stringify(newSettings));
       setSettings(newSettings);
       setIsVisible(false);
@@ -76,8 +76,8 @@ export default function CookieConsent() {
   };
 
   const handleCategoryChange = (category: keyof CookieCategories) => {
-    if (category === 'necessary') return; // Zorunlu çerezler değiştirilemez
-    
+    if (category === 'necessary') return; // Required cookies cannot be changed
+
     setSettings(prev => ({
       ...prev,
       categories: {
@@ -90,20 +90,17 @@ export default function CookieConsent() {
   const applyCookieSettings = (settings: CookieSettings) => {
     // Google Analytics
     if (settings.categories.analytics) {
-      // Google Analytics kodunu yükle
-      console.log('Google Analytics aktif');
+      console.log('Google Analytics active');
     }
 
     // Marketing cookies
     if (settings.categories.marketing) {
-      // Marketing cookie'lerini yükle
-      console.log('Marketing cookies aktif');
+      console.log('Marketing cookies active');
     }
 
     // Preference cookies
     if (settings.categories.preferences) {
-      // Preference cookie'lerini yükle
-      console.log('Preference cookies aktif');
+      console.log('Preference cookies active');
     }
   };
 
@@ -121,24 +118,23 @@ export default function CookieConsent() {
             {!showDetails ? (
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p className={`${redHat.className} text-gray-700 text-sm md:text-base`}>
-                  Bu web sitesi, size en iyi deneyimi sunmak için çerezleri kullanmaktadır. 
+                  This website uses cookies to provide you with the best experience.
                   <Link href="/cookies" className="text-[#00c16a] hover:text-[#00a85c] ml-1">
-                    Çerez politikamız
-                  </Link>
-                  {' '}hakkında detaylı bilgi alabilirsiniz.
+                    Learn more about our cookie policy
+                  </Link>.
                 </p>
                 <div className="flex gap-4">
                   <button
                     onClick={() => setShowDetails(true)}
                     className="text-gray-600 hover:text-gray-900 px-4 py-2 text-sm font-medium transition-all"
                   >
-                    Tercihleri Yönet
+                    Manage Preferences
                   </button>
                   <button
                     onClick={handleAcceptAll}
                     className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-6 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap"
                   >
-                    Tümünü Kabul Et
+                    Accept All
                   </button>
                 </div>
               </div>
@@ -146,7 +142,7 @@ export default function CookieConsent() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <h3 className={`${redHat.className} text-lg font-medium text-gray-900`}>
-                    Çerez Tercihleri
+                    Cookie Preferences
                   </h3>
                   <button
                     onClick={() => setShowDetails(false)}
@@ -157,12 +153,12 @@ export default function CookieConsent() {
                     </svg>
                   </button>
                 </div>
-                
+
                 <div className="space-y-3">
                   <div className="flex items-center justify-between py-2">
                     <div>
-                      <p className="font-medium text-gray-900">Zorunlu Çerezler</p>
-                      <p className="text-sm text-gray-500">Sitenin çalışması için gerekli olan temel çerezler</p>
+                      <p className="font-medium text-gray-900">Required Cookies</p>
+                      <p className="text-sm text-gray-500">Essential cookies required for the site to function</p>
                     </div>
                     <div className="relative">
                       <input
@@ -176,8 +172,8 @@ export default function CookieConsent() {
 
                   <div className="flex items-center justify-between py-2">
                     <div>
-                      <p className="font-medium text-gray-900">Analitik Çerezler</p>
-                      <p className="text-sm text-gray-500">Site kullanımını analiz etmemize yardımcı olan çerezler</p>
+                      <p className="font-medium text-gray-900">Analytics Cookies</p>
+                      <p className="text-sm text-gray-500">Cookies that help us analyze site usage</p>
                     </div>
                     <div className="relative">
                       <input
@@ -191,8 +187,8 @@ export default function CookieConsent() {
 
                   <div className="flex items-center justify-between py-2">
                     <div>
-                      <p className="font-medium text-gray-900">Pazarlama Çerezleri</p>
-                      <p className="text-sm text-gray-500">Size özel reklamlar göstermemizi sağlayan çerezler</p>
+                      <p className="font-medium text-gray-900">Marketing Cookies</p>
+                      <p className="text-sm text-gray-500">Cookies that allow us to show you personalized ads</p>
                     </div>
                     <div className="relative">
                       <input
@@ -206,8 +202,8 @@ export default function CookieConsent() {
 
                   <div className="flex items-center justify-between py-2">
                     <div>
-                      <p className="font-medium text-gray-900">Tercih Çerezleri</p>
-                      <p className="text-sm text-gray-500">Site tercihlerinizi hatırlamamızı sağlayan çerezler</p>
+                      <p className="font-medium text-gray-900">Preference Cookies</p>
+                      <p className="text-sm text-gray-500">Cookies that remember your site preferences</p>
                     </div>
                     <div className="relative">
                       <input
@@ -225,7 +221,7 @@ export default function CookieConsent() {
                     onClick={handleSavePreferences}
                     className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-6 py-2 rounded-lg text-sm font-medium transition-all"
                   >
-                    Tercihleri Kaydet
+                    Save Preferences
                   </button>
                 </div>
               </div>
@@ -235,4 +231,4 @@ export default function CookieConsent() {
       )}
     </AnimatePresence>
   );
-} 
+}

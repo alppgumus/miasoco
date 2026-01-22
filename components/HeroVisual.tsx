@@ -4,43 +4,44 @@ import AnimatedList from './ui/animations/AnimatedList';
 
 const notifications = [
   {
-    name: "Yeni bir siparişiniz var",
+    name: "You have a new order",
     description: "miaso",
     icon: "💰",
     color: "#00C9A7",
-    time: "Az önce",
+    time: "Just now",
   },
   {
-    name: "Instagram'dan yeni takipçi",
+    name: "New follower from Instagram",
     description: "miaso",
     icon: "📸",
     color: "#E1306C",
-    time: "1 dk önce",
+    time: "1 min ago",
   },
   {
-    name: "TikTok'ta yeni beğeni",
+    name: "New like on TikTok",
     description: "miaso",
     icon: "🎵",
     color: "#000000",
-    time: "2 dk önce",
+    time: "2 min ago",
   },
   {
-    name: "Yeni bir mesajınız var",
+    name: "You have a new message",
     description: "miaso",
     icon: "💬",
     color: "#4f46e5",
-    time: "3 dk önce",
+    time: "3 min ago",
   },
   {
-    name: "Facebook'ta yeni beğeni",
+    name: "New like on Facebook",
     description: "miaso",
     icon: "👍",
     color: "#4267B2",
-    time: "5 dk önce",
+    time: "5 min ago",
   }
 ];
 
-const repeatedNotifications = Array.from({ length: 10 }, () => notifications).flat();
+// Only repeat 2x instead of 10x for better mobile performance
+const repeatedNotifications = [...notifications, ...notifications];
 
 interface NotificationCardProps {
   name: string;
