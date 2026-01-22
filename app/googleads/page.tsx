@@ -55,7 +55,7 @@ function AccordionSection({ number, title, isOpen }: { number: string, title: st
 }
 
 export default function GoogleAds() {
-  
+
   const [isMounted, setIsMounted] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -104,12 +104,12 @@ export default function GoogleAds() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex gap-4 mt-8"
               >
-                <button
+                <a
                   href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                   className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-8 py-4 rounded-lg font-medium transition-all"
                 >
                   Get in Touch
-                </button>
+                </a>
               </motion.div>
 
               <motion.div
@@ -172,12 +172,12 @@ export default function GoogleAds() {
                 </p>
 
                 <div className="mt-8 md:mt-12">
-                  <button
+                  <a
                     href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                     className="bg-[#11fb96] text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md hover:bg-opacity-90 transition-all"
                   >
                     Get in Touch
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -324,7 +324,7 @@ export default function GoogleAds() {
           </div>
         </section>
       </div>
-      
+
     </>
   )
 }

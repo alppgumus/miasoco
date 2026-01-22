@@ -13,7 +13,7 @@ const redHat = Red_Hat_Display({
 
 export default function AboutUs() {
   const [isMounted, setIsMounted] = useState(false)
-  
+
 
   useEffect(() => {
     setIsMounted(true)
@@ -62,12 +62,12 @@ export default function AboutUs() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex gap-4 mb-16"
               >
-                <button
+                <a
                   href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                   className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-8 py-4 rounded-lg font-medium transition-all"
                 >
                   Get in Touch
-                </button>
+                </a>
               </motion.div>
 
               <motion.div
@@ -272,7 +272,7 @@ export default function AboutUs() {
           </div>
         </section>
       </div>
-      
+
     </>
   )
 }

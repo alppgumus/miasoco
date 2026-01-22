@@ -67,7 +67,7 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode, titl
 }
 
 export default function PerformansPazarlama() {
-  
+
 
   return (
     <>
@@ -102,12 +102,12 @@ export default function PerformansPazarlama() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex gap-4 mt-8"
               >
-                <button
+                <a
                   href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                   className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-8 py-4 rounded-lg font-medium transition-all"
                 >
                   Get in Touch
-                </button>
+                </a>
               </motion.div>
             </div>
           </div>
@@ -150,12 +150,12 @@ export default function PerformansPazarlama() {
                 </p>
 
                 <div className="mt-8 md:mt-12">
-                  <button
+                  <a
                     href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                     className="bg-[#11fb96] text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md hover:bg-opacity-90 transition-all"
                   >
                     Get in Touch
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -258,7 +258,7 @@ export default function PerformansPazarlama() {
           </div>
         </section>
       </div>
-      
+
     </>
   )
 }

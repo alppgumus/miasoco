@@ -14,7 +14,7 @@ const redHat = Red_Hat_Display({
 export default function MobileApp() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isMounted, setIsMounted] = useState(false)
-  
+
 
   useEffect(() => {
     if (videoRef.current) {
@@ -75,12 +75,12 @@ export default function MobileApp() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex gap-4 mb-16"
               >
-                <button
+                <a
                   href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                   className="bg-[#00c16a] hover:bg-[#00a85c] text-white px-8 py-4 rounded-lg font-medium transition-all"
                 >
                   Get in Touch
-                </button>
+                </a>
               </motion.div>
 
               {/* Video */}
@@ -194,12 +194,12 @@ export default function MobileApp() {
                 </p>
 
                 <div className="mt-8 md:mt-12">
-                  <button
+                  <a
                     href={`mailto:${CONTACT_EMAIL}?subject=Contact%20Request`}
                     className="bg-[#11fb96] text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-medium rounded-md hover:bg-opacity-90 transition-all"
                   >
                     Get in Touch
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -299,7 +299,7 @@ export default function MobileApp() {
           </div>
         </section>
       </div>
-      
+
     </>
   )
 }
