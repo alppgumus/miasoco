@@ -43,7 +43,7 @@ const AnimatedList = React.memo(({
   }, [index, childrenArray, isMobile]);
 
   return (
-    <div className={`flex flex-col items-center gap-4 ${className}`}>
+    <div className={`flex flex-col items-center gap-4 min-h-[200px] ${className}`}>
       <AnimatePresence>
         {React.Children.map(itemsToShow, (item, idx) => (
           <AnimatedListItem key={React.isValidElement(item) ? item.key : idx} isMobile={isMobile}>

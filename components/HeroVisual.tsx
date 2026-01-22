@@ -88,7 +88,12 @@ export default function HeroVisual() {
   }, []);
 
   if (!isMounted) {
-    return null;
+    // Return placeholder with same dimensions to prevent CLS
+    return (
+      <div className="relative w-full max-w-[1080px] mx-auto">
+        <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-xl overflow-hidden bg-transparent" />
+      </div>
+    );
   }
 
   return (

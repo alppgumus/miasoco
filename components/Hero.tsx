@@ -15,7 +15,38 @@ const Hero = () => {
   }, [])
 
   if (!isMounted) {
-    return null // Returns empty on initial page load
+    // Return placeholder with same dimensions to prevent CLS
+    return (
+      <section className="h-[85vh] bg-[#050806] relative overflow-hidden">
+        <div className="relative z-20 container mx-auto px-4 md:px-[90px] h-full flex flex-col justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="max-w-3xl pt-0 lg:pt-0">
+              <div className="mt-8 md:mt-0">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-6 text-left text-white">
+                  <span>The architect of your </span>
+                  <span style={{ color: '#11fb96' }}>digital</span>
+                  <span> world.</span>
+                </h1>
+                <p className="text-base lg:text-lg mb-8 text-gray-300 text-left max-w-xl leading-relaxed">
+                  We accelerate your growth by unlocking your business's digital potential. Web development, digital marketing, e-commerce solutions and more.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 items-start">
+                  <span className="bg-white text-black font-semibold py-3 px-8 rounded-full">
+                    Contact Us
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="block lg:block mt-8 lg:mt-0">
+              {/* Placeholder for HeroVisual */}
+              <div className="relative w-full max-w-[1080px] mx-auto">
+                <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] w-full rounded-xl overflow-hidden bg-transparent" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
