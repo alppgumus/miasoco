@@ -28,7 +28,7 @@ export default function ProveIt() {
       });
 
       if (response.ok) {
-        alert('Başvurunuz başarıyla gönderildi!');
+        alert('Your application has been submitted successfully!');
         setFormData({
           name: '',
           email: '',
@@ -41,18 +41,18 @@ export default function ProveIt() {
         });
         router.push('/');
       } else {
-        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+        alert('An error occurred. Please try again.');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+      alert('An error occurred. Please try again.');
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
-    
+
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
@@ -65,17 +65,17 @@ export default function ProveIt() {
     }}>
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-16">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-mono text-white mb-16 whitespace-nowrap">
-          # Sen <span className="text-[#00ed64]">{'{'} olağanüstüsün {'}'}</span>
+          # You are <span className="text-[#00ed64]">{'{'}  extraordinary {'}'}</span>
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="space-y-6">
-            <h2 className="text-2xl font-mono text-white mb-8">Başvuru</h2>
-            
+            <h2 className="text-2xl font-mono text-white mb-8">Application</h2>
+
             <div className="space-y-4">
               <div>
                 <label className="block text-white font-mono mb-2">
-                  İsim <span className="text-red-500">*</span>
+                  Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -89,7 +89,7 @@ export default function ProveIt() {
 
               <div>
                 <label className="block text-white font-mono mb-2">
-                  E-posta <span className="text-red-500">*</span>
+                  Email <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -102,12 +102,12 @@ export default function ProveIt() {
               </div>
 
               <div>
-                <label className="block text-white font-mono mb-2">Lokasyon</label>
+                <label className="block text-white font-mono mb-2">Location</label>
                 <input
                   type="text"
                   name="location"
                   className="w-full bg-black border border-gray-800 text-white font-mono p-3 rounded focus:border-[#00ed64] focus:outline-none"
-                  placeholder="Şehir, Ülke"
+                  placeholder="City, Country"
                   onChange={handleChange}
                   value={formData.location}
                 />
@@ -115,7 +115,7 @@ export default function ProveIt() {
 
               <div>
                 <label className="block text-white font-mono mb-2">
-                  Seni en iyi tanımlayan seçeneği seç
+                  Select the option that best describes you
                 </label>
                 <select
                   name="role"
@@ -123,17 +123,17 @@ export default function ProveIt() {
                   onChange={handleChange}
                   value={formData.role}
                 >
-                  <option value="">Seçiniz...</option>
-                  <option value="developer">Yazılım Geliştirici</option>
-                  <option value="designer">Tasarımcı</option>
-                  <option value="manager">Proje Yöneticisi</option>
-                  <option value="marketer">Pazarlama Uzmanı</option>
+                  <option value="">Select...</option>
+                  <option value="developer">Software Developer</option>
+                  <option value="designer">Designer</option>
+                  <option value="manager">Project Manager</option>
+                  <option value="marketer">Marketing Specialist</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-white font-mono mb-2">
-                  Seçimini birkaç cümleyle açıkla <span className="text-red-500">*</span>
+                  Explain your choice in a few sentences <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="explanation"
@@ -147,14 +147,14 @@ export default function ProveIt() {
 
               <div>
                 <label className="block text-white font-mono mb-2">
-                  Kanıtlamak için bir link paylaş <span className="text-red-500">*</span>
+                  Share a link to prove it <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="url"
                   name="proofLink"
                   required
                   className="w-full bg-black border border-gray-800 text-white font-mono p-3 rounded focus:border-[#00ed64] focus:outline-none"
-                  placeholder="Örn. Kişisel site, GitHub profili, Portfolio"
+                  placeholder="E.g. Personal website, GitHub profile, Portfolio"
                   onChange={handleChange}
                   value={formData.proofLink}
                 />
@@ -171,7 +171,7 @@ export default function ProveIt() {
                     checked={formData.agreeNDA}
                   />
                   <label className="text-white font-mono">
-                    Gizlilik sözleşmesini okudum ve kabul ediyorum
+                    I have read and accept the confidentiality agreement
                   </label>
                 </div>
 
@@ -185,7 +185,7 @@ export default function ProveIt() {
                     checked={formData.agreePrivacy}
                   />
                   <label className="text-white font-mono">
-                    KVKK metnini okudum ve kabul ediyorum
+                    I have read and accept the Privacy Policy
                   </label>
                 </div>
               </div>
@@ -196,10 +196,10 @@ export default function ProveIt() {
             type="submit"
             className="px-8 py-3 bg-[#00ed64] text-black rounded hover:bg-[#00c853] transition-colors font-mono font-bold"
           >
-            Gönder
+            Submit
           </button>
         </form>
       </div>
     </div>
   );
-} 
+}

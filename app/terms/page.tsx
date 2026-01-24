@@ -10,32 +10,32 @@ const redHat = Red_Hat_Display({
 });
 
 const sections = [
-  { id: "genel-hukumler", title: "Genel Hükümler" },
-  { id: "hizmet-kapsami", title: "Hizmet Kapsamı" },
-  { id: "hizmet-kullanimi", title: "Hizmet Kullanımı" },
-  { id: "odeme-kosullari", title: "Ödeme Koşulları" },
-  { id: "sorumluluklar", title: "Sorumluluklar" },
-  { id: "fikri-mulkiyet", title: "Fikri Mülkiyet Hakları" },
-  { id: "fesih", title: "Sözleşmenin Feshi" },
-  { id: "iletisim", title: "İletişim" }
+  { id: "general-provisions", title: "General Provisions" },
+  { id: "service-scope", title: "Service Scope" },
+  { id: "service-usage", title: "Service Usage" },
+  { id: "payment-terms", title: "Payment Terms" },
+  { id: "responsibilities", title: "Responsibilities" },
+  { id: "intellectual-property", title: "Intellectual Property Rights" },
+  { id: "termination", title: "Termination" },
+  { id: "contact", title: "Contact" }
 ];
 
-export default function HizmetSartlari() {
-  const [activeSection, setActiveSection] = useState("genel-hukumler");
+export default function TermsOfService() {
+  const [activeSection, setActiveSection] = useState("general-provisions");
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
-      
+
       let currentSection = sections[0].id;
-      
+
       sections.forEach(section => {
         const element = document.getElementById(section.id);
         if (element && element.offsetTop <= scrollPosition) {
           currentSection = section.id;
         }
       });
-      
+
       setActiveSection(currentSection);
     };
 
@@ -56,24 +56,24 @@ export default function HizmetSartlari() {
   return (
     <div className="bg-[#f0f0f5]">
       <div className="relative bg-[#050806] mb-16">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="container mx-auto px-4 pt-32 pb-16 text-center"
         >
           <h1 className={`${redHat.className} text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4`}>
-            Hizmet Şartları
+            Terms of Service
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Bu hizmet şartları, Miaso tarafından sunulan tüm hizmetlerin kullanım koşullarını belirler.
+            These terms of service govern the conditions of use of all services offered by Miaso.
           </p>
         </motion.div>
       </div>
 
       <div className="container mx-auto px-4 py-16 pb-32">
         <div className="flex flex-col md:flex-row gap-10">
-          {/* Sol Menü */}
+          {/* Left Menu */}
           <div className="md:w-1/4">
             <div className="sticky top-32">
               <nav className="flex flex-col space-y-2">
@@ -81,11 +81,10 @@ export default function HizmetSartlari() {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`text-left px-4 py-2 rounded-lg transition-all ${
-                      activeSection === section.id
+                    className={`text-left px-4 py-2 rounded-lg transition-all ${activeSection === section.id
                         ? "bg-[#00c16a] text-white"
                         : "hover:bg-gray-100 text-gray-700"
-                    }`}
+                      }`}
                   >
                     {section.title}
                   </button>
@@ -94,7 +93,7 @@ export default function HizmetSartlari() {
             </div>
           </div>
 
-          {/* Sağ İçerik */}
+          {/* Right Content */}
           <div className="md:w-3/4">
             <div className="prose max-w-none">
               {sections.map(section => (
@@ -102,143 +101,143 @@ export default function HizmetSartlari() {
                   <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>
                     {section.title}
                   </h2>
-                  {section.id === "genel-hukumler" && (
+                  {section.id === "general-provisions" && (
                     <>
                       <p className="text-gray-600 mb-4">
-                        İşbu hizmet şartları ("Sözleşme"), Miaso ("Şirket") ile hizmetlerimizi kullanmak isteyen gerçek veya tüzel kişiler ("Müşteri") arasındaki ilişkiyi düzenler.
+                        These terms of service ("Agreement") govern the relationship between Miaso ("Company") and individuals or legal entities ("Customer") who wish to use our services.
                       </p>
                       <p className="text-gray-600 mb-4">
-                        Bu sözleşme, tarafların hak ve yükümlülüklerini, hizmetlerin kapsamını, kullanım şartlarını ve diğer önemli hususları içerir. Hizmetlerimizi kullanmaya başladığınız andan itibaren bu şartları kabul etmiş sayılırsınız.
+                        This agreement includes the rights and obligations of the parties, the scope of services, terms of use and other important matters. By starting to use our services, you are deemed to have accepted these terms.
                       </p>
                       <p className="text-gray-600">
-                        Şirketimiz, bu sözleşmede yer alan maddeleri, hizmetleri ve ücretlendirme politikalarını önceden bildirmek kaydıyla değiştirme hakkını saklı tutar.
+                        Our company reserves the right to change the terms, services and pricing policies in this agreement, provided that prior notice is given.
                       </p>
                     </>
                   )}
-                  {section.id === "hizmet-kapsami" && (
+                  {section.id === "service-scope" && (
                     <>
                       <p className="text-gray-600 mb-4">
-                        Miaso tarafından sunulan hizmetler aşağıdakileri kapsar:
+                        Services offered by Miaso include the following:
                       </p>
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">1. Dijital Reklam Yönetimi</h3>
+                      <h3 className="text-lg font-medium text-gray-800 mb-3">1. Digital Advertising Management</h3>
                       <ul className="list-disc pl-6 text-gray-600 mb-6">
-                        <li>Google Ads kampanya yönetimi ve optimizasyonu</li>
-                        <li>Meta Ads (Facebook & Instagram) reklam yönetimi</li>
-                        <li>Reklam metni ve görseli hazırlama</li>
-                        <li>Hedef kitle analizi ve segmentasyon</li>
-                        <li>Performans raporlama ve analiz</li>
+                        <li>Google Ads campaign management and optimization</li>
+                        <li>Meta Ads (Facebook & Instagram) ad management</li>
+                        <li>Ad copy and creative preparation</li>
+                        <li>Target audience analysis and segmentation</li>
+                        <li>Performance reporting and analysis</li>
                       </ul>
 
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">2. 360° Performans Pazarlama</h3>
+                      <h3 className="text-lg font-medium text-gray-800 mb-3">2. 360° Performance Marketing</h3>
                       <ul className="list-disc pl-6 text-gray-600 mb-6">
-                        <li>Dijital pazarlama stratejisi oluşturma</li>
-                        <li>Çok kanallı pazarlama yönetimi</li>
-                        <li>Conversion optimizasyonu</li>
-                        <li>Analytics ve veri analizi</li>
+                        <li>Digital marketing strategy development</li>
+                        <li>Multi-channel marketing management</li>
+                        <li>Conversion optimization</li>
+                        <li>Analytics and data analysis</li>
                       </ul>
 
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">3. E-ticaret Çözümleri</h3>
+                      <h3 className="text-lg font-medium text-gray-800 mb-3">3. E-commerce Solutions</h3>
                       <ul className="list-disc pl-6 text-gray-600 mb-6">
-                        <li>E-ticaret sitesi kurulumu ve özelleştirme</li>
-                        <li>Ödeme sistemi entegrasyonu</li>
-                        <li>Ürün kataloğu yönetimi</li>
-                        <li>SEO optimizasyonu</li>
+                        <li>E-commerce site setup and customization</li>
+                        <li>Payment system integration</li>
+                        <li>Product catalog management</li>
+                        <li>SEO optimization</li>
                       </ul>
 
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">4. Web Tasarım ve Geliştirme</h3>
+                      <h3 className="text-lg font-medium text-gray-800 mb-3">4. Web Design and Development</h3>
                       <ul className="list-disc pl-6 text-gray-600 mb-6">
-                        <li>Özel web sitesi tasarımı ve geliştirme</li>
-                        <li>Web uygulaması geliştirme</li>
-                        <li>Responsive tasarım</li>
-                        <li>UI/UX tasarımı</li>
-                        <li>Bakım ve destek hizmetleri</li>
+                        <li>Custom website design and development</li>
+                        <li>Web application development</li>
+                        <li>Responsive design</li>
+                        <li>UI/UX design</li>
+                        <li>Maintenance and support services</li>
                       </ul>
 
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">5. Mobil Uygulama Geliştirme</h3>
+                      <h3 className="text-lg font-medium text-gray-800 mb-3">5. Mobile App Development</h3>
                       <ul className="list-disc pl-6 text-gray-600 mb-6">
-                        <li>iOS ve Android uygulama geliştirme</li>
-                        <li>Cross-platform uygulama geliştirme</li>
-                        <li>UI/UX tasarımı</li>
-                        <li>Uygulama bakımı ve güncellemeleri</li>
-                        <li>App Store ve Play Store yönetimi</li>
+                        <li>iOS and Android app development</li>
+                        <li>Cross-platform app development</li>
+                        <li>UI/UX design</li>
+                        <li>App maintenance and updates</li>
+                        <li>App Store and Play Store management</li>
                       </ul>
                     </>
                   )}
-                  {section.id === "hizmet-kullanimi" && (
+                  {section.id === "service-usage" && (
                     <>
                       <p className="text-gray-600 mb-4">
-                        Müşteri, hizmetlerin kullanımı sırasında:
+                        During the use of services, the Customer is obligated to:
                       </p>
                       <ul className="list-disc pl-6 text-gray-600 mb-4">
-                        <li>Tüm bilgilerin doğru ve güncel olmasını sağlamakla,</li>
-                        <li>Hesap güvenliğini korumakla,</li>
-                        <li>Yasalara ve etik kurallara uygun davranmakla,</li>
-                        <li>Şirket'in itibarına zarar verecek davranışlardan kaçınmakla,</li>
-                        <li>Hizmetleri amacı dışında kullanmamakla yükümlüdür.</li>
+                        <li>Ensure that all information is accurate and up-to-date</li>
+                        <li>Maintain account security</li>
+                        <li>Act in accordance with laws and ethical rules</li>
+                        <li>Avoid behaviors that could damage the Company&apos;s reputation</li>
+                        <li>Not use the services for purposes other than intended</li>
                       </ul>
                     </>
                   )}
-                  {section.id === "odeme-kosullari" && (
+                  {section.id === "payment-terms" && (
                     <>
                       <p className="text-gray-600 mb-4">
-                        Hizmet bedelleri ve ödeme koşulları aşağıdaki şekilde düzenlenir:
+                        Service fees and payment terms are arranged as follows:
                       </p>
                       <ul className="list-disc pl-6 text-gray-600 mb-4">
-                        <li>Hizmet bedelleri, seçilen paket ve hizmet türüne göre belirlenir</li>
-                        <li>Ödemeler, hizmet başlangıcında peşin olarak alınır</li>
-                        <li>Reklam harcamaları ayrıca faturalandırılır</li>
-                        <li>Ödeme gecikmeleri durumunda hizmet sunumu durdurulabilir</li>
-                        <li>Fiyatlandırma politikası piyasa koşullarına göre güncellenebilir</li>
+                        <li>Service fees are determined according to the selected package and service type</li>
+                        <li>Payments are collected in advance at the start of service</li>
+                        <li>Advertising expenses are billed separately</li>
+                        <li>Service provision may be suspended in case of payment delays</li>
+                        <li>Pricing policies may be updated according to market conditions</li>
                       </ul>
                     </>
                   )}
-                  {section.id === "sorumluluklar" && (
+                  {section.id === "responsibilities" && (
                     <>
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">Şirket'in Sorumlulukları</h3>
+                      <h3 className="text-lg font-medium text-gray-800 mb-3">Company&apos;s Responsibilities</h3>
                       <ul className="list-disc pl-6 text-gray-600 mb-6">
-                        <li>Hizmetlerin kesintisiz ve güvenli şekilde sunulması</li>
-                        <li>Müşteri verilerinin korunması</li>
-                        <li>Teknik destek sağlanması</li>
-                        <li>Düzenli raporlama yapılması</li>
+                        <li>Uninterrupted and secure delivery of services</li>
+                        <li>Protection of customer data</li>
+                        <li>Providing technical support</li>
+                        <li>Regular reporting</li>
                       </ul>
 
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">Müşteri'nin Sorumlulukları</h3>
+                      <h3 className="text-lg font-medium text-gray-800 mb-3">Customer&apos;s Responsibilities</h3>
                       <ul className="list-disc pl-6 text-gray-600 mb-4">
-                        <li>Gerekli içerik ve materyallerin sağlanması</li>
-                        <li>Zamanında geri bildirim verilmesi</li>
-                        <li>Ödeme yükümlülüklerinin yerine getirilmesi</li>
-                        <li>Yasal düzenlemelere uygunluğun sağlanması</li>
+                        <li>Providing necessary content and materials</li>
+                        <li>Providing timely feedback</li>
+                        <li>Fulfilling payment obligations</li>
+                        <li>Ensuring compliance with legal regulations</li>
                       </ul>
                     </>
                   )}
-                  {section.id === "fikri-mulkiyet" && (
+                  {section.id === "intellectual-property" && (
                     <>
                       <p className="text-gray-600 mb-4">
-                        Müşterilerimize ait tüm bilgiler gizli tutulur ve üçüncü taraflarla paylaşılmaz. Toplanan veriler sadece hizmet kalitesini artırmak ve yasal yükümlülükleri yerine getirmek amacıyla kullanılır.
+                        All information belonging to our customers is kept confidential and is not shared with third parties. Collected data is only used to improve service quality and fulfill legal obligations.
                       </p>
                     </>
                   )}
-                  {section.id === "fesih" && (
+                  {section.id === "termination" && (
                     <>
                       <p className="text-gray-600 mb-4">
-                        Şirketimiz, sunduğu hizmetleri önceden bildirmeksizin değiştirme, güncelleme veya sonlandırma hakkını saklı tutar.
+                        Our company reserves the right to change, update or terminate the services it provides without prior notice.
                       </p>
                     </>
                   )}
-                  {section.id === "iletisim" && (
+                  {section.id === "contact" && (
                     <>
                       <p className="text-gray-600 mb-4">
-                        Bu sözleşme ile ilgili tüm bildirimler için:
+                        For all notifications regarding this agreement:
                       </p>
                       <ul className="list-none text-gray-600">
                         <li className="mb-2">
-                          <strong>E-posta:</strong>{" "}
+                          <strong>Email:</strong>{" "}
                           <a href="mailto:info@miaso.co" className="text-[#00c16a] hover:underline">
                             info@miaso.co
                           </a>
                         </li>
                         <li className="mb-2">
-                          <strong>Telefon:</strong>{" "}
+                          <strong>Phone:</strong>{" "}
                           <a href="tel:+905512351626" className="text-[#00c16a] hover:underline">
                             0551 235 16 26
                           </a>
@@ -254,4 +253,4 @@ export default function HizmetSartlari() {
       </div>
     </div>
   )
-} 
+}

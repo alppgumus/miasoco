@@ -10,32 +10,32 @@ const redHat = Red_Hat_Display({
 });
 
 const sections = [
-  { id: "genel-bilgiler", title: "Genel Bilgiler" },
-  { id: "toplanan-veriler", title: "Toplanan Veriler" },
-  { id: "veri-kullanimi", title: "Veri Kullanımı" },
-  { id: "veri-paylasimi", title: "Veri Paylaşımı" },
-  { id: "veri-guvenligi", title: "Veri Güvenliği" },
-  { id: "cerezler", title: "Çerezler" },
-  { id: "kullanici-haklari", title: "Kullanıcı Hakları" },
-  { id: "iletisim", title: "İletişim" }
+  { id: "general-info", title: "General Information" },
+  { id: "collected-data", title: "Collected Data" },
+  { id: "data-usage", title: "Data Usage" },
+  { id: "data-sharing", title: "Data Sharing" },
+  { id: "data-security", title: "Data Security" },
+  { id: "cookies", title: "Cookies" },
+  { id: "user-rights", title: "User Rights" },
+  { id: "contact", title: "Contact" }
 ];
 
-export default function GizlilikPolitikasi() {
-  const [activeSection, setActiveSection] = useState("genel-bilgiler");
+export default function PrivacyPolicy() {
+  const [activeSection, setActiveSection] = useState("general-info");
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
-      
+
       let currentSection = sections[0].id;
-      
+
       sections.forEach(section => {
         const element = document.getElementById(section.id);
         if (element && element.offsetTop <= scrollPosition) {
           currentSection = section.id;
         }
       });
-      
+
       setActiveSection(currentSection);
     };
 
@@ -56,24 +56,24 @@ export default function GizlilikPolitikasi() {
   return (
     <div className="bg-[#f0f0f5]">
       <div className="relative bg-[#050806] mb-16">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="container mx-auto px-4 pt-32 pb-16 text-center"
         >
           <h1 className={`${redHat.className} text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4`}>
-            Gizlilik Politikası
+            Privacy Policy
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Kişisel verilerinizin korunması ve gizliliğiniz bizim için önemlidir.
+            Protecting your personal data and privacy is important to us.
           </p>
         </motion.div>
       </div>
 
       <div className="container mx-auto px-4 py-16 pb-32">
         <div className="flex flex-col md:flex-row gap-10">
-          {/* Sol Menü */}
+          {/* Left Menu */}
           <div className="md:w-1/4">
             <div className="sticky top-32">
               <nav className="flex flex-col space-y-2">
@@ -81,11 +81,10 @@ export default function GizlilikPolitikasi() {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`text-left px-4 py-2 rounded-lg transition-all ${
-                      activeSection === section.id
+                    className={`text-left px-4 py-2 rounded-lg transition-all ${activeSection === section.id
                         ? "bg-[#00c16a] text-white"
                         : "hover:bg-gray-100 text-gray-700"
-                    }`}
+                      }`}
                   >
                     {section.title}
                   </button>
@@ -94,187 +93,187 @@ export default function GizlilikPolitikasi() {
             </div>
           </div>
 
-          {/* Sağ İçerik */}
+          {/* Right Content */}
           <div className="md:w-3/4">
             <div className="prose max-w-none">
-              <section id="genel-bilgiler" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Genel Bilgiler</h2>
+              <section id="general-info" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>General Information</h2>
                 <p className="text-gray-600 mb-4">
-                  Bu gizlilik politikası, Miaso ("biz", "bizim" veya "Şirket") tarafından kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar. Bu politika, KVKK (6698 sayılı Kişisel Verilerin Korunması Kanunu), GDPR (Genel Veri Koruma Yönetmeliği) ve CCPA (California Tüketici Gizlilik Yasası) gerekliliklerine uygun olarak hazırlanmıştır.
+                  This privacy policy explains how Miaso ("we", "our" or "Company") collects, uses and protects your personal data. This policy has been prepared in accordance with the requirements of KVKK (Personal Data Protection Law No. 6698), GDPR (General Data Protection Regulation) and CCPA (California Consumer Privacy Act).
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Bu politika, web sitemizi, mobil uygulamalarımızı ve diğer dijital platformlarımızı kullanırken toplanan verileri kapsar. Hizmetlerimizi kullanarak bu gizlilik politikasını kabul etmiş olursunuz.
+                  This policy covers data collected while using our website, mobile applications and other digital platforms. By using our services, you agree to this privacy policy.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Politikamızı zaman zaman güncelleyebiliriz. Önemli değişiklikler olması durumunda sizi bilgilendireceğiz. Bu politikanın son güncellenme tarihi: [04.03.2025].
+                  We may update our policy from time to time. We will notify you in case of significant changes. Last update date of this policy: [04.03.2025].
                 </p>
               </section>
 
-              <section id="toplanan-veriler" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Toplanan Veriler</h2>
-                
-                <h3 className="text-lg font-medium text-gray-800 mb-3">1. Doğrudan Sağlanan Veriler</h3>
+              <section id="collected-data" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Collected Data</h2>
+
+                <h3 className="text-lg font-medium text-gray-800 mb-3">1. Directly Provided Data</h3>
                 <p className="text-gray-600 mb-4">
-                  Hizmetlerimizi kullanırken doğrudan bize sağladığınız veriler:
+                  Data you directly provide to us while using our services:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 mb-6">
-                  <li>Kimlik bilgileri (ad, soyad, T.C. kimlik numarası)</li>
-                  <li>İletişim bilgileri (e-posta, telefon, adres)</li>
-                  <li>Şirket bilgileri (şirket adı, vergi numarası, adres)</li>
-                  <li>Fatura ve ödeme bilgileri</li>
-                  <li>Hesap tercihleri ve ayarları</li>
-                  <li>Müşteri hizmetleri ile yapılan görüşmeler</li>
-                  <li>Geri bildirimler ve değerlendirmeler</li>
+                  <li>Identity information (name, surname, national ID number)</li>
+                  <li>Contact information (email, phone, address)</li>
+                  <li>Company information (company name, tax number, address)</li>
+                  <li>Billing and payment information</li>
+                  <li>Account preferences and settings</li>
+                  <li>Customer service conversations</li>
+                  <li>Feedback and reviews</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">2. Otomatik Toplanan Veriler</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">2. Automatically Collected Data</h3>
                 <p className="text-gray-600 mb-4">
-                  Hizmetlerimizi kullanırken otomatik olarak toplanan veriler:
+                  Data automatically collected while using our services:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 mb-6">
-                  <li>IP adresi ve konum bilgileri</li>
-                  <li>Cihaz bilgileri (işletim sistemi, tarayıcı türü)</li>
-                  <li>Kullanım verileri (tıklama, görüntüleme, gezinme)</li>
-                  <li>Performans ve hata raporları</li>
-                  <li>Çerez ve benzer teknolojiler aracılığıyla toplanan veriler</li>
+                  <li>IP address and location information</li>
+                  <li>Device information (operating system, browser type)</li>
+                  <li>Usage data (clicks, views, navigation)</li>
+                  <li>Performance and error reports</li>
+                  <li>Data collected through cookies and similar technologies</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">3. Üçüncü Taraflardan Alınan Veriler</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">3. Data from Third Parties</h3>
                 <p className="text-gray-600 mb-4">
-                  Güvenilir üçüncü taraflardan alabileceğimiz veriler:
+                  Data we may receive from trusted third parties:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 mb-6">
-                  <li>Reklam ve analitik ortaklarından alınan veriler</li>
-                  <li>Sosyal medya platformlarından alınan veriler</li>
-                  <li>Kamuya açık kaynaklardan alınan veriler</li>
+                  <li>Data from advertising and analytics partners</li>
+                  <li>Data from social media platforms</li>
+                  <li>Data from publicly available sources</li>
                 </ul>
               </section>
 
-              <section id="veri-kullanimi" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Veri Kullanımı</h2>
-                
-                <h3 className="text-lg font-medium text-gray-800 mb-3">1. Hizmet Sağlama ve İyileştirme</h3>
+              <section id="data-usage" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Data Usage</h2>
+
+                <h3 className="text-lg font-medium text-gray-800 mb-3">1. Service Delivery and Improvement</h3>
                 <ul className="list-disc pl-6 text-gray-600 mb-6">
-                  <li>Hesabınızın oluşturulması ve yönetimi</li>
-                  <li>Hizmetlerimizin sunulması ve özelleştirilmesi</li>
-                  <li>Müşteri desteği sağlanması</li>
-                  <li>Hizmet kalitesinin artırılması</li>
-                  <li>Teknik sorunların çözülmesi</li>
+                  <li>Creating and managing your account</li>
+                  <li>Delivering and customizing our services</li>
+                  <li>Providing customer support</li>
+                  <li>Improving service quality</li>
+                  <li>Resolving technical issues</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">2. İletişim ve Pazarlama</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">2. Communication and Marketing</h3>
                 <ul className="list-disc pl-6 text-gray-600 mb-6">
-                  <li>Hizmet güncellemeleri hakkında bilgilendirme</li>
-                  <li>Özelleştirilmiş pazarlama iletileri gönderme</li>
-                  <li>Müşteri memnuniyeti araştırmaları</li>
-                  <li>Etkinlik ve kampanya duyuruları</li>
+                  <li>Informing about service updates</li>
+                  <li>Sending personalized marketing messages</li>
+                  <li>Customer satisfaction surveys</li>
+                  <li>Event and campaign announcements</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">3. Analiz ve İyileştirme</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">3. Analysis and Improvement</h3>
                 <ul className="list-disc pl-6 text-gray-600 mb-6">
-                  <li>Kullanım istatistiklerinin analizi</li>
-                  <li>Hizmet performansının ölçümü</li>
-                  <li>Kullanıcı deneyiminin iyileştirilmesi</li>
-                  <li>Yeni özellik ve hizmetlerin geliştirilmesi</li>
+                  <li>Analyzing usage statistics</li>
+                  <li>Measuring service performance</li>
+                  <li>Improving user experience</li>
+                  <li>Developing new features and services</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">4. Yasal Yükümlülükler</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">4. Legal Obligations</h3>
                 <ul className="list-disc pl-6 text-gray-600 mb-6">
-                  <li>Yasal gerekliliklerin yerine getirilmesi</li>
-                  <li>Dolandırıcılık ve kötüye kullanımın önlenmesi</li>
-                  <li>Güvenlik ihlallerinin tespiti ve önlenmesi</li>
-                  <li>Yasal hakların korunması</li>
+                  <li>Fulfilling legal requirements</li>
+                  <li>Preventing fraud and misuse</li>
+                  <li>Detecting and preventing security breaches</li>
+                  <li>Protecting legal rights</li>
                 </ul>
               </section>
 
-              <section id="veri-paylasimi" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Veri Paylaşımı</h2>
+              <section id="data-sharing" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Data Sharing</h2>
                 <p className="text-gray-600 mb-4">
-                  Kişisel verilerinizi üçüncü taraflarla sadece aşağıdaki durumlarda paylaşırız:
+                  We only share your personal data with third parties in the following situations:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 mb-4">
-                  <li>Yasal zorunluluk durumunda</li>
-                  <li>Açık rızanız olması halinde</li>
-                  <li>Hizmet sağlayıcılarımızla (veri işleme sözleşmesi kapsamında)</li>
-                  <li>Şirket birleşmesi veya satın alınması durumunda</li>
+                  <li>When required by law</li>
+                  <li>With your explicit consent</li>
+                  <li>With our service providers (under data processing agreements)</li>
+                  <li>In case of a company merger or acquisition</li>
                 </ul>
               </section>
 
-              <section id="veri-guvenligi" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Veri Güvenliği</h2>
+              <section id="data-security" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Data Security</h2>
                 <p className="text-gray-600 mb-4">
-                  Verilerinizi korumak için aşağıdaki önlemleri alıyoruz:
+                  We take the following measures to protect your data:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 mb-4">
-                  <li>SSL/TLS şifreleme</li>
-                  <li>Güvenlik duvarları ve antivirüs sistemleri</li>
-                  <li>Düzenli güvenlik değerlendirmeleri</li>
-                  <li>Çalışan gizlilik eğitimleri</li>
-                  <li>Veri erişim kontrolü</li>
+                  <li>SSL/TLS encryption</li>
+                  <li>Firewalls and antivirus systems</li>
+                  <li>Regular security assessments</li>
+                  <li>Employee privacy training</li>
+                  <li>Data access control</li>
                 </ul>
               </section>
 
-              <section id="cerezler" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Çerezler</h2>
-                
+              <section id="cookies" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Cookies</h2>
+
                 <p className="text-gray-600 mb-4">
-                  Çerezler, web sitemizin daha etkili çalışmasını sağlayan küçük metin dosyalarıdır. Aşağıdaki çerez türlerini kullanmaktayız:
+                  Cookies are small text files that help our website function more effectively. We use the following types of cookies:
                 </p>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">1. Zorunlu Çerezler</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">1. Essential Cookies</h3>
                 <p className="text-gray-600 mb-4">
-                  Web sitemizin temel işlevlerini yerine getirmek için gerekli olan çerezlerdir. Bu çerezler olmadan web sitemiz düzgün çalışmaz.
+                  Cookies necessary for the basic functions of our website. Without these cookies, our website will not function properly.
                 </p>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">2. Analitik Çerezler</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">2. Analytics Cookies</h3>
                 <p className="text-gray-600 mb-4">
-                  Ziyaretçilerin web sitemizi nasıl kullandığını anlamamızı sağlayan çerezlerdir. Bu bilgiler site performansını iyileştirmek için kullanılır.
+                  Cookies that help us understand how visitors use our website. This information is used to improve site performance.
                 </p>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">3. İşlevsellik Çerezleri</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">3. Functionality Cookies</h3>
                 <p className="text-gray-600 mb-4">
-                  Dil tercihi gibi kullanıcı seçimlerini hatırlamamızı sağlayan çerezlerdir.
+                  Cookies that help us remember user preferences such as language selection.
                 </p>
 
-                <h3 className="text-lg font-medium text-gray-800 mb-3">4. Pazarlama Çerezleri</h3>
+                <h3 className="text-lg font-medium text-gray-800 mb-3">4. Marketing Cookies</h3>
                 <p className="text-gray-600 mb-4">
-                  Reklam ve pazarlama faaliyetlerini kişiselleştirmek için kullanılan çerezlerdir. Bu çerezleri devre dışı bırakabilirsiniz.
+                  Cookies used to personalize advertising and marketing activities. You can disable these cookies.
                 </p>
 
                 <p className="text-gray-600 mt-6">
-                  Çerez tercihlerinizi tarayıcı ayarlarınızdan değiştirebilirsiniz. Ancak bazı çerezleri devre dışı bırakmanız durumunda web sitemizin bazı özellikleri düzgün çalışmayabilir.
+                  You can change your cookie preferences in your browser settings. However, disabling some cookies may affect the proper functioning of some features of our website.
                 </p>
               </section>
 
-              <section id="kullanici-haklari" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Kullanıcı Hakları</h2>
+              <section id="user-rights" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>User Rights</h2>
                 <p className="text-gray-600 mb-4">
-                  KVKK, GDPR ve CCPA kapsamında sahip olduğunuz haklar:
+                  Your rights under KVKK, GDPR and CCPA:
                 </p>
                 <ul className="list-disc pl-6 text-gray-600 mb-4">
-                  <li>Verilerinize erişim hakkı</li>
-                  <li>Verilerinizi düzeltme hakkı</li>
-                  <li>Verilerinizin silinmesini talep etme hakkı</li>
-                  <li>Veri işlemeyi kısıtlama hakkı</li>
-                  <li>Veri taşınabilirliği hakkı</li>
-                  <li>İtiraz etme hakkı</li>
+                  <li>Right to access your data</li>
+                  <li>Right to rectify your data</li>
+                  <li>Right to request deletion of your data</li>
+                  <li>Right to restrict data processing</li>
+                  <li>Right to data portability</li>
+                  <li>Right to object</li>
                 </ul>
               </section>
 
-              <section id="iletisim" className="mb-16">
-                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>İletişim</h2>
+              <section id="contact" className="mb-16">
+                <h2 className={`${redHat.className} text-2xl md:text-3xl font-light mb-6 text-gray-900`}>Contact</h2>
                 <p className="text-gray-600 mb-4">
-                  Gizlilik politikamız hakkında sorularınız için bize ulaşabilirsiniz:
+                  For questions about our privacy policy, you can contact us:
                 </p>
                 <ul className="list-none text-gray-600">
                   <li className="mb-2">
-                    <strong>E-posta:</strong>{" "}
+                    <strong>Email:</strong>{" "}
                     <a href="mailto:info@miaso.co" className="text-[#00c16a] hover:underline">
                       info@miaso.co
                     </a>
                   </li>
                   <li className="mb-2">
-                    <strong>Telefon:</strong>{" "}
+                    <strong>Phone:</strong>{" "}
                     <a href="tel:+905512351626" className="text-[#00c16a] hover:underline">
                       0551 235 16 26
                     </a>
@@ -287,4 +286,4 @@ export default function GizlilikPolitikasi() {
       </div>
     </div>
   )
-} 
+}
